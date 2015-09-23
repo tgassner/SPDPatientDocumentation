@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="SPD.GUI.WPF.PatientDetail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="800" Name="controlPatientDetail">
+    <Grid Margin="0,0,0,0">
+        <Grid HorizontalAlignment="Left" Height="280" Margin="10,10,0,0" VerticalAlignment="Top" Width="780">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0"  Grid.Column="0" Content="ID:"/>
+            <Label Grid.Row="1"  Grid.Column="0" Content="Surname:"/>
+            <Label Grid.Row="2"  Grid.Column="0" Content="Firstname:"/>
+            <Label Grid.Row="3"  Grid.Column="0" Content="Age:"/>
+            <Label Grid.Row="4"  Grid.Column="0" Content="Date of birth:"/>
+            <Label Grid.Row="5"  Grid.Column="0" Content="Sex:"/>
+            <Label Grid.Row="6"  Grid.Column="0" Content="Phone:"/>
+            <Label Grid.Row="7"  Grid.Column="0" Content="Address:"/>
+            <Label Grid.Row="8"  Grid.Column="0" Content="Resident of Asmara:"/>
+            <Label Grid.Row="9"  Grid.Column="0" Content="Weight:"/>
+            <Label Grid.Row="10" Grid.Column="0" Content="Ambulant:"/>
+            <Label Grid.Row="11" Grid.Column="0" Content="Finished:"/>
+            <Label Grid.Row="12" Grid.Column="0" Content="Linz:"/>
+            
+            <TextBox Grid.Row="0"  Grid.Column="1" Name="textBoxId"></TextBox>
+            <TextBox Grid.Row="1"  Grid.Column="1" Name="textBoxSurname"></TextBox>
+            <TextBox Grid.Row="2"  Grid.Column="1" Name="textBoxFirstName"></TextBox>
+            <TextBox Grid.Row="3"  Grid.Column="1" Name="textBoxAge"></TextBox>
+            <TextBox Grid.Row="4"  Grid.Column="1" Name="textBoxDateOfBirth"></TextBox>
+            
+            <ListBox  Grid.Row="5"  Grid.Column="1" Name="listBoxSec"></ListBox>
+            <TextBox Grid.Row="6"  Grid.Column="1" Name="textBoxPhone"></TextBox>
+            <TextBox Grid.Row="7"  Grid.Column="1" Name="textBoxAddress"></TextBox>
+            <TextBox Grid.Row="8"  Grid.Column="1" Name="textBoxResidentOfAsmara"></TextBox>
+<!--
+            <ListBox  Grid.Row="5"  Grid.Column="1" >
+                <ListViewItem Content="Male" />
+                <ListViewItem Content="Female" />
+            </ListBox>
+-->
+            <TextBox Grid.Row="9"  Grid.Column="1" Name="textBoxWeight"></TextBox>
+            <TextBox Grid.Row="10" Grid.Column="1" Name="textBoxAmbulant"></TextBox>
+            <TextBox Grid.Row="11" Grid.Column="1" Name="textBoxFinished"></TextBox>
+            <TextBox Grid.Row="12" Grid.Column="1" Name="textBoxLinz"></TextBox>
+        </Grid>
+
+    </Grid>
+</UserControl>

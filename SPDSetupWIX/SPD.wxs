@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?define Manufactor = "Ing. Thomas Gassner, M.Sc."?>
+  <?define UpgradeGuid = "{86F0294C-075C-497C-8EDF-33B5849B9CC3}"?>
+  <?define Name = "SPD Patient Documentation"?>
+  <?define Url = "http://spd.thomas-gassner.at"?>
+  <Product
+  Id="*"
+  Name="SPD Patient Documentation"
+  Language="1033"
+  Version="!(bind.FileVersion.F_SPDGUI)"
+  Manufacturer="$(var.Manufactor)"
+  UpgradeCode="$(var.UpgradeGuid)">
+    <Package
+    InstallerVersion="200"
+    Compressed="yes"
+    Description="Installing $(var.Name)"
+    Manufacturer="$(var.Manufactor)"
+    Comments="Comments..."
+  />
+
+    <Media
+    Id="1"
+    Cabinet="media1.cab"
+    EmbedCab="yes"
+  />
+
+    <Property Id="ARPHELPLINK" Value="$(var.Url)" />
+    <Property Id="ARPCONTACT" Value="$(var.Manufactor)" />
+    <Property Id="ARPCOMMENTS" Value="$(var.Name)" />
+    <Property Id="ARPURLINFOABOUT" Value="$(var.Url)" />
+
+    <PropertyRef Id="WIX_IS_NETFRAMEWORK_46_OR_LATER_INSTALLED" />
+    <Condition Message='This product requires the .NET Framework 4.6 or higher version installed. https://www.microsoft.com/en-us/download/details.aspx?id=48137' >
+      <![CDATA[Installed OR (WIX_IS_NETFRAMEWORK_46_OR_LATER_INSTALLED)]]>
+    </Condition>
+    
+    <Upgrade Id="$(var.UpgradeGuid)">
+      <UpgradeVersion Minimum="!(bind.FileVersion.F_SPDGUI)"
+                      IncludeMinimum="no"
+                      OnlyDetect="yes"
+                      Language="1033"
+                      Property="NEWPRODUCTFOUND" />
+      <UpgradeVersion Minimum="5.4.0.0"
+                      IncludeMinimum="yes"
+                      Maximum="!(bind.FileVersion.F_SPDGUI)"
+                      IncludeMaximum="no"
+                      Language="1033"
+                      Property="UPGRADEFOUND" />
+      <UpgradeVersion Minimum="5.4.0.0" Maximum="5.4.1.0"
+         Property="PREVIOUSVERSIONSINSTALLED"
+         IncludeMinimum="yes" IncludeMaximum="no" />
+    </Upgrade>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLLOCATION" Name="SPD">
+          <Component Id="C_SPDGUI" Guid="{3DC14B9E-962D-B982-2CB6-5BECEF9A624C}">
+            <File Id="F_SPDGUI" Name="$(var.SPDGUI.TargetFileName)" Source="$(var.SPDGUI.TargetPath)" KeyPath="yes">
+              <Shortcut Advertise="yes" Id="DesktopShortCutSPDGUI" Name="$(var.Name)" Directory="DesktopFolder" WorkingDirectory="INSTALLLOCATION" Description="SPD Patient Documentation" Icon="I_SPDGUI.exe">
+                <Icon Id="I_SPDGUI.exe" SourceFile="$(var.SPDGUI.TargetPath)" />
+              </Shortcut>
+            </File>
+          </Component>
+          <Component Id="C_SPDBL" Guid="{A90D4C1B-8D17-3064-FD87-750D7936F5DF}">
+            <File Id="F_SPDBL" Name="$(var.SPDBL.TargetFileName)" Source="$(var.SPDBL.TargetPath)" KeyPath="yes" />
+          </Component>
+
+          <Component Id="C_SPDDAL" Guid="{ACD0546F-503B-0538-EB0C-3B355B6FB6F0}">
+            <File Id="F_SPDDAL" Name="$(var.SPDDAL.TargetFileName)" Source="$(var.SPDDAL.TargetPath)" KeyPath="yes" />
+          </Component>
+
+          <Component Id="C_SPDDObj" Guid="{41514252-6611-532D-3BCB-A04AC269760C}">
+            <File Id="F_SPDDObj" Name="$(var.SPDDObj.TargetFileName)" Source="$(var.SPDDObj.TargetPath)" KeyPath="yes" />
+          </Component>
+
+          <Component Id="C_GPrintLib" Guid="{7F62D8DF-E210-B411-5DDC-0F042F392195}">
+            <File Id="F_GPrintLib" Name="$(var.GPrintLib.TargetFileName)" Source="$(var.GPrintLib.TargetPath)" KeyPath="yes" />
+          </Component>
+
+          <Component Id="C_SPDOPWriter" Guid="{6EA99A81-748E-9F82-5BEC-F5A53C441178}">
+            <File Id="F_SPDOPWriter" Name="$(var.SPDOPWriter.TargetFileName)" Source="$(var.SPDOPWriter.TargetPath)" KeyPath="yes">
+              <Shortcut Advertise="yes" Id="DesktopShortCutSPDOPWriter" Name="SPD OP Writer" Directory="DesktopFolder" WorkingDirectory="INSTALLLOCATION" Description="SPD OP Writer" Icon="I_SPDOPWriter.exe">
+                <Icon Id="I_SPDOPWriter.exe" SourceFile="$(var.SPDOPWriter.TargetPath)" />
+              </Shortcut>
+            </File>
+          </Component>
+
+          <Component Id="C_SPD.app.config" Guid="{BAA03CF5-840B-8244-40A7-CAB1B4126D6E}">
+            <File Id="F_SPD.app.config" Name="SPD.Exe.Config" Source="$(var.SPDGUI.ProjectDir)app.config" KeyPath="yes" />
+          </Component>
+
+          <Component Id="C_SPDOPWriter.app.config" Guid="{B6D39987-7A2F-A920-F394-098DCF7EABCB}">
+            <File Id="F_SPDOPWriter.app.config" Name="SPDOPWriter.exe.config" KeyPath="yes" Source="$(var.SPDOPWriter.ProjectDir)app.config" />
+          </Component>
+
+          <Component Id="C_log4net_dll" Guid="{387080F8-7EEF-BABA-1D2F-FB523AA1C477}">
+            <File Id="F_log4net_dll" Name="log4net.dll" KeyPath="yes" Source="..\SPDDAL\bin\x86\Release\log4net.dll" />
+          </Component>
+          <Component Id="C_log4net_xml" Guid="{CE78ABE7-49D6-4B9B-BCC5-262331AAF4DD}">
+            <File Id="F_log4net_xml" Name="log4net.xml" KeyPath="yes" Source="..\SPDDAL\bin\x86\Release\log4net.xml" />
+          </Component>
+          <Component Id="C_MySql_Data_dll" Guid="{65C77768-1FB8-92DF-40B7-273F88DE112C}">
+            <File Id="F_MySql_Data_dll" Name="MySql.Data.dll" KeyPath="yes" Source="..\SPDDAL\bin\x86\Release\mysql.data.dll" />
+          </Component>
+          <Component Id="C_spd_ico" Guid="{8608C0D0-9543-53E2-88C6-C9E178FD5B10}">
+            <File Id="F_spd_ico" Name="spd.ico" KeyPath="yes" Source="..\resources\spd.ico" />
+          </Component>
+          <Component Id="C_patient_mdb" Guid="{68930D0F-A81E-67D2-53DD-940CFB0A4622}">
+            <File Id="F_patient_mdb" Name="patient.mdb" KeyPath="yes" Source="..\Database\access\patient.mdb" />
+          </Component>
+          <Component Id="C_patient_accdb" Guid="{547F3C75-AE50-4AC3-F38B-3C1CDA9862F1}">
+            <File Id="F_patient_accdb" Name="patient.accdb" KeyPath="yes" Source="..\Database\access\patient.accdb" />
+          </Component>
+          <Component Id="C_Mono_Security_dll" Guid="{DA27003E-7076-409A-C6CB-EF6E79D9D4F6}">
+            <File Id="F_Mono_Security_dll" Name="Mono.Security.dll" KeyPath="yes" Source="..\SPDDAL\bin\x86\Release\Mono.Security.dll" />
+          </Component>
+          <Component Id="C_Npgsql_dll" Guid="{715D1B4C-B7EA-B4D4-528D-A4526B323C30}">
+            <File Id="F_Npgsql_dll" Name="Npgsql.dll" KeyPath="yes" Source="..\SPDDAL\bin\x86\Release\Npgsql.dll" />
+          </Component>
+          <Component Id="C_Npgsql_xml" Guid="{1A92BFDB-6CDE-47D2-9FD1-89BEA199FF5D}">
+            <File Id="F_Npgsql_xml" Name="Npgsql.xml" KeyPath="yes" Source="..\SPDDAL\bin\x86\Release\Npgsql.xml" />
+          </Component>
+
+          <Directory Id="D_fonts" Name="fonts">
+            <Component Id="C_FRE3OF9X" Guid="{41F14D6B-88E3-781E-7675-B3A146539618}">
+              <File Id="F_FRE3OF9X" Name="FRE3OF9X.TTF" KeyPath="yes" Source="..\fonts\FRE3OF9X.TTF" />
+            </Component>
+          </Directory>
+
+          <Directory Id="D_sql" Name="sql">
+            <Component Id="C_PostgreSQL" Guid="{07A3013C-B01D-7D30-5AB5-6A176A256833}">
+              <File Id="F_PostgreSQL" Name="SPD_PostgreSQL_DDL.sql" KeyPath="yes" Source="..\Database\PostgreSql\SPD_PostgreSQL_DDL.sql" />
+            </Component>
+            <Component Id="C_MySQL" Guid="{20F04F03-6841-3E06-77C9-BB10FAD497B0}">
+              <File Id="F_MySQL" Name="SPD_MySQL_DDL.sql" KeyPath="yes" Source="..\Database\mysql\SPD_MySQL_DDL.sql" />
+            </Component>
+            <Component Id="C_Oracle" Guid="{AC4A1F2D-F540-BC98-63BF-CD6C8BFBE92A}">
+              <File Id="F_Oracle" Name="SPD_Oracle_DDL.sql" KeyPath="yes" Source="..\Database\oracle\SPD_Oracle_DDL.sql" />
+            </Component>
+          </Directory>
+
+        </Directory>
+      </Directory>
+
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="MyShortCutsDir" Name="SPD Patient Documentation">
+          <Component Id="ShortCutComponent" Guid="{B51BC276-F509-4F25-9738-EE176445D073}">
+            <Shortcut Id="ProgShortCutSPD" Name="SPDGUI" Description="SPD Patient Documentation" Target="[INSTALLLOCATION]SPD.Exe"></Shortcut>
+            <Shortcut Id="ProgShortCutSPDOPWriter" Name="SPDOPWriter" Description="SPD OP Writer" Target="[INSTALLLOCATION]SPDOPWriter.Exe"></Shortcut>
+            <RemoveFolder Id="RemoveMyShortCuts" On="uninstall"/>
+            <RegistryValue Root="HKCU" Key="Software\SPD" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+          </Component>
+        </Directory>
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop" />
+    </Directory>
+
+    <Feature Id="ProductFeature" Title="SPDGUI" Level="1">
+      <ComponentRef Id="C_SPDGUI" />
+      <ComponentRef Id="C_SPDBL" />
+      <ComponentRef Id="C_SPDDAL" />
+      <ComponentRef Id="C_SPDDObj" />
+      <ComponentRef Id="C_GPrintLib" />
+      <ComponentRef Id="C_SPDOPWriter" />
+      <ComponentRef Id="C_SPD.app.config" />
+      <ComponentRef Id="C_SPDOPWriter.app.config" />
+      <ComponentRef Id="C_FRE3OF9X" />
+      <ComponentRef Id="C_PostgreSQL" />
+      <ComponentRef Id="C_MySQL" />
+      <ComponentRef Id="C_Oracle" />
+      <ComponentRef Id="C_log4net_dll" />
+      <ComponentRef Id="C_MySql_Data_dll" />
+      <ComponentRef Id="C_spd_ico" />
+      <ComponentRef Id="C_patient_mdb" />
+      <ComponentRef Id="C_patient_accdb" />
+      <ComponentRef Id="C_Mono_Security_dll" />
+      <ComponentRef Id="C_Npgsql_dll" />
+      <ComponentRef Id="ShortCutComponent" />
+    </Feature>
+
+    <CustomAction Id="PreventDowngrading" Error="A newer version is already installed!" />
+
+    <InstallExecuteSequence>
+      <Custom Action="PreventDowngrading"
+              After="FindRelatedProducts">NEWPRODUCTFOUND</Custom>
+      <RemoveExistingProducts After="InstallFinalize" />
+    </InstallExecuteSequence>
+
+    <InstallUISequence>
+      <Custom Action="PreventDowngrading"
+              After="FindRelatedProducts">NEWPRODUCTFOUND</Custom>
+    </InstallUISequence>
+
+    <!-- So kann man eine eigene Lizenzmeldung ausgeben -->
+    <WixVariable Id='WixUILicenseRtf' Overridable='yes' Value='..\resources\Lizenzbestimmungen.rtf'/>
+    <WixVariable Id="WixUIBannerBmp" Value="..\resources\WIXBanner.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="..\resources\WixDialog.bmp" />
+
+    <UIRef Id="WixUI_InstallDir" />
+    <UIRef Id="WixUI_ErrorProgressText" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLLOCATION" />
+  </Product>
+</Wix>

@@ -1,0 +1,279 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CA786E06-E6D1-43FD-8672-BBA1CC2F30BA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SimplePatientDocumentation.FrontEnd</RootNamespace>
+    <AssemblyName>SPD</AssemblyName>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>http://localhost/SPD/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <TargetCulture>en</TargetCulture>
+    <ProductName>Simple Patient Documentation</ProductName>
+    <PublisherName>Thomas Gassner - thomas.gassner%40gmx.net</PublisherName>
+    <ApplicationVersion>2.5.0.%2a</ApplicationVersion>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBoxSPD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBoxSPD.Designer.cs">
+      <DependentUpon>AboutBoxSPD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackupForm.Designer.cs">
+      <DependentUpon>BackupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarDiagramm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BarDiagramm.Designer.cs">
+      <DependentUpon>BarDiagramm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FurtherTreatmentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FurtherTreatmentControl.Designer.cs">
+      <DependentUpon>FurtherTreatmentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImagesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ImagesControl.Designer.cs">
+      <DependentUpon>ImagesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPatientControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPatientControl.Designer.cs">
+      <DependentUpon>NewPatientControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewVisit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewVisit.Designer.cs">
+      <DependentUpon>NewVisit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OPControl.Designer.cs">
+      <DependentUpon>OPControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientSearchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientSearchControl.Designer.cs">
+      <DependentUpon>PatientSearchControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plan OP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plan OP.Designer.cs">
+      <DependentUpon>Plan OP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintMorePatientsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrintMorePatientsControl.Designer.cs">
+      <DependentUpon>PrintMorePatientsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintSelectionForm.Designer.cs">
+      <DependentUpon>PrintSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutBoxSPD.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AboutBoxSPD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackupForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>BackupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarDiagramm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>BarDiagramm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FurtherTreatmentControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FurtherTreatmentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImagesControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ImagesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPatientControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NewPatientControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewVisit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NewVisit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OPControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientSearchControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PatientSearchControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plan OP.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Plan OP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintMorePatientsControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PrintMorePatientsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintSelectionForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PrintSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShortcutsForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ShortcutsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowOperationsControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ShowOperationsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisitsControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>VisitsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ShortcutsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShortcutsForm.Designer.cs">
+      <DependentUpon>ShortcutsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowOperationsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ShowOperationsControl.Designer.cs">
+      <DependentUpon>ShowOperationsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SPDPrint.cs" />
+    <Compile Include="VisitsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VisitsControl.Designer.cs">
+      <DependentUpon>VisitsControl.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SimplePatientDocumentationBL\SimplePatientDocumentationBL.csproj">
+      <Project>{DB3C015B-B080-4E22-9AE6-268ABA3413C1}</Project>
+      <Name>SimplePatientDocumentationBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimplePatientDocumentationCommonObjects\SimplePatientDocumentationCommonObjects.csproj">
+      <Project>{093BD334-4BA2-4C8F-945D-8E058AA80247}</Project>
+      <Name>SimplePatientDocumentationCommonObjects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HFO.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logogross.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Logo.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

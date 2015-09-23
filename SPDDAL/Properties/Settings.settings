@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SPD.DAL.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Database" Type="SPD.DAL.Databases" Scope="User">
+      <Value Profile="(Default)">Access2007</Value>
+    </Setting>
+    <Setting Name="MySQLServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">127.0.0.1</Value>
+    </Setting>
+    <Setting Name="MySQLDatabase" Type="System.String" Scope="User">
+      <Value Profile="(Default)">spd</Value>
+    </Setting>
+    <Setting Name="MySQLUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">spd</Value>
+    </Setting>
+    <Setting Name="MySQLPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">eritrea</Value>
+    </Setting>
+    <Setting Name="PostgreSQLServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">127.0.0.1</Value>
+    </Setting>
+    <Setting Name="PostgreSQLPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">5432</Value>
+    </Setting>
+    <Setting Name="PostgreSQLUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">spd</Value>
+    </Setting>
+    <Setting Name="PostgreSQLPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">eritrea</Value>
+    </Setting>
+    <Setting Name="PostgreSQLDatabase" Type="System.String" Scope="User">
+      <Value Profile="(Default)">spd</Value>
+    </Setting>
+    <Setting Name="MySQLPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">3306</Value>
+    </Setting>
+    <Setting Name="AccessFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">patient.mdb</Value>
+    </Setting>
+    <Setting Name="Access2007File" Type="System.String" Scope="User">
+      <Value Profile="(Default)">patient.accdb</Value>
+    </Setting>
+    <Setting Name="BackupPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

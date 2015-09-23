@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CA786E06-E6D1-43FD-8672-BBA1CC2F30BA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SPD.GUI</RootNamespace>
+    <AssemblyName>SPD</AssemblyName>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>http://localhost/SPD/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <TargetCulture>en</TargetCulture>
+    <ProductName>Simple Patient Documentation</ProductName>
+    <PublisherName>Thomas Gassner - thomas.gassner%40gmx.net</PublisherName>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>5.4.1.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\SPD.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\x86\Debug\SPD.XML</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>spd.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBoxSPD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBoxSPD.Designer.cs">
+      <DependentUpon>AboutBoxSPD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackupForm.Designer.cs">
+      <DependentUpon>BackupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarDiagramm.cs" />
+    <Compile Include="BarDiagramm.Designer.cs">
+      <DependentUpon>BarDiagramm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintWaitingListHtml.cs" />
+    <Compile Include="OnlineSPDInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="OverviewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OverviewControl.Designer.cs">
+      <DependentUpon>OverviewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintPatientListHtml.cs" />
+    <Compile Include="DatabaseSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatabaseSettingsForm.Designer.cs">
+      <DependentUpon>DatabaseSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DiagnoseGroupSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DiagnoseGroupSettingsForm.Designer.cs">
+      <DependentUpon>DiagnoseGroupSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinalReportControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FinalReportControl.Designer.cs">
+      <DependentUpon>FinalReportControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImagesControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ImagesControl.Designer.cs">
+      <DependentUpon>ImagesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ImportControl.Designer.cs">
+      <DependentUpon>ImportControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewPatientControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewPatientControl.Designer.cs">
+      <DependentUpon>NewPatientControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewVisit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NewVisit.Designer.cs">
+      <DependentUpon>NewVisit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NextActionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NextActionControl.Designer.cs">
+      <DependentUpon>NextActionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NextActionOverviewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NextActionOverviewControl.Designer.cs">
+      <DependentUpon>NextActionOverviewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NextAppointmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NextAppointmentForm.Designer.cs">
+      <DependentUpon>NextAppointmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OPControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OPControl.Designer.cs">
+      <DependentUpon>OPControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatientSearchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PatientSearchControl.Designer.cs">
+      <DependentUpon>PatientSearchControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plan OP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Plan OP.Designer.cs">
+      <DependentUpon>Plan OP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintHtml.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintHtml.Designer.cs">
+      <DependentUpon>PrintHtml.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintMorePatientsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PrintMorePatientsControl.Designer.cs">
+      <DependentUpon>PrintMorePatientsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintNextActionHtml.cs" />
+    <Compile Include="PrintSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintSelectionForm.Designer.cs">
+      <DependentUpon>PrintSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutBoxSPD.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AboutBoxSPD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackupForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>BackupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarDiagramm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>BarDiagramm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DatabaseSettingsForm.resx">
+      <DependentUpon>DatabaseSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DiagnoseGroupSettingsForm.resx">
+      <DependentUpon>DiagnoseGroupSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinalReportControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FinalReportControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImagesControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ImagesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportControl.resx">
+      <DependentUpon>ImportControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewPatientControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NewPatientControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewVisit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NewVisit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NextActionControl.resx">
+      <DependentUpon>NextActionControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NextActionOverviewControl.resx">
+      <DependentUpon>NextActionOverviewControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NextAppointmentForm.resx">
+      <DependentUpon>NextAppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OPControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OverviewControl.resx">
+      <DependentUpon>OverviewControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientSearchControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PatientSearchControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Plan OP.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Plan OP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintHtml.resx">
+      <DependentUpon>PrintHtml.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintMorePatientsControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PrintMorePatientsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintSelectionForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PrintSelectionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServerSelectionForm.resx">
+      <DependentUpon>ServerSelectionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShortcutsForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ShortcutsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowErrorForm.resx">
+      <DependentUpon>ShowErrorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowOperationsControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ShowOperationsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisitsControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>VisitsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ServerSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServerSelectionForm.Designer.cs">
+      <DependentUpon>ServerSelectionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShortcutsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShortcutsForm.Designer.cs">
+      <DependentUpon>ShortcutsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowErrorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowErrorForm.Designer.cs">
+      <DependentUpon>ShowErrorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowOperationsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ShowOperationsControl.Designer.cs">
+      <DependentUpon>ShowOperationsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SPDBLFactory.cs" />
+    <Compile Include="SPDPrint.cs" />
+    <Compile Include="VisitsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VisitsControl.Designer.cs">
+      <DependentUpon>VisitsControl.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GPrintLib\GPrintLib.csproj">
+      <Project>{CB8F83E4-510C-4195-9EEF-6C9AD457DD3D}</Project>
+      <Name>GPrintLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SPDBL\SPDBL.csproj">
+      <Project>{DB3C015B-B080-4E22-9AE6-268ABA3413C1}</Project>
+      <Name>SPDBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SPDDObj\SPDDObj.csproj">
+      <Project>{093BD334-4BA2-4C8F-945D-8E058AA80247}</Project>
+      <Name>SPDDObj</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HFO.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\313.png" />
+    <Content Include="Resources\Logo.png" />
+    <Content Include="Resources\logogross.png" />
+    <Content Include="Resources\Penis.jpg" />
+    <Content Include="Resources\Reneal.jpg" />
+    <None Include="Resources\Reneal.png" />
+    <Content Include="Resources\Testicle.jpg" />
+    <None Include="Resources\Testicle.png" />
+    <Content Include="spd.ico" />
+    <None Include="Resources\ERD.jpg" />
+    <None Include="Resources\letterhead.jpg" />
+    <None Include="Resources\letterhead.tif" />
+    <None Include="Resources\search16.gif" />
+    <None Include="Resources\search18.gif" />
+    <None Include="Resources\search.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

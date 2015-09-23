@@ -1,0 +1,16 @@
+﻿<GRAMMAR LANGID="409">
+	<DEFINE>
+		<ID NAME="ColorAndShape"	VAL="1"  />
+	</DEFINE>	
+	<!-- rule Definitions -->
+	<RULE NAME="start" ID="ColorAndShape" TOPLEVEL="ACTIVE">
+		<LIST>
+			<PHRASE>Shape Rectangle</PHRASE>
+			<PHRASE>Shape Line</PHRASE>
+			<PHRASE>Shape Oval</PHRASE>
+			<PHRASE>Color Red</PHRASE>
+			<PHRASE>Color Green</PHRASE>
+			<PHRASE>Color Blue</PHRASE>
+		</LIST>	   
+	</RULE>
+</GRAMMAR>

@@ -1,0 +1,243 @@
+﻿<ribbon:RibbonWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ribbon="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="SPDGUIWPF.MainWindow"
+        Title="SPD Patient Documentation"
+		x:Name="RibbonWindow"
+        xmlns:local="clr-namespace:McXamlLib"
+		Width="1000" Height="480">
+
+    <DockPanel x:Name="LayoutRoot">
+        <ribbon:Ribbon x:Name="Ribbon" SelectionChanged="Ribbon_SelectionChanged"  DockPanel.Dock="Top">
+            <ribbon:Ribbon.HelpPaneContent>
+                <ribbon:RibbonButton SmallImageSource="Images/helpsmall.png" />
+            </ribbon:Ribbon.HelpPaneContent>
+            <ribbon:Ribbon.QuickAccessToolBar>
+                <ribbon:RibbonQuickAccessToolBar >
+                    <ribbon:RibbonButton x:Name="QATButtonNew" 
+                                         SmallImageSource="Images/newsmall.png" 
+                                         ToolTip="Create new Patient"/>
+                    <ribbon:RibbonButton x:Name="QATButtonOpen" 
+                                         SmallImageSource="Images/opensmall.png" 
+                                         ToolTip="Opens JSON File for import"/>
+                    <ribbon:RibbonButton x:Name="QATButtonClearCache" 
+                                         SmallImageSource="Images/refreshcachesmall.png" 
+                                         ToolTip="Clear Cache"/>
+                    <ribbon:RibbonButton x:Name="QATButtonExportDB" 
+                                         SmallImageSource="Images/exportsmall.png" 
+                                         ToolTip="Export / Backup Database"/>
+                    <ribbon:RibbonButton x:Name="QATButtonImportDB" 
+                                         SmallImageSource="Images/importsmall.png" 
+                                         ToolTip="Import Database / Restore Backup"/>
+                    <!-- <ribbon:RibbonButton x:Name="QATButton2" 
+                                         SmallImageSource="Images/SmallIcon.png" /> -->
+                </ribbon:RibbonQuickAccessToolBar>
+            </ribbon:Ribbon.QuickAccessToolBar>
+            <ribbon:Ribbon.ApplicationMenu>
+                <ribbon:RibbonApplicationMenu SmallImageSource="Images\spdsmall.png">
+                    <ribbon:RibbonApplicationMenuItem x:Name="newPatient" Header="New Patient" HorizontalAlignment="Left" ImageSource="Images\newlarge.png" />
+                    <ribbon:RibbonApplicationMenuItem x:Name="settings" Header="Settings" HorizontalAlignment="Left" ImageSource="Images/settingslarge.png">
+                        <ribbon:RibbonApplicationMenuItem x:Name="generalSettings" Header="General" HorizontalAlignment="Left"/>
+                        <ribbon:RibbonApplicationMenuItem x:Name="dbSettings" Header="Database" HorizontalAlignment="Left"/>
+                        <ribbon:RibbonApplicationMenuItem x:Name="dgSettings" Header="Diagnose Group" HorizontalAlignment="Left"/>
+                    </ribbon:RibbonApplicationMenuItem>
+                    <ribbon:RibbonApplicationMenuItem x:Name="clearCaches" Header="Clear Caches" HorizontalAlignment="Left" ImageSource="Images\refreshcachelarge.png" />
+                    <ribbon:RibbonApplicationMenuItem x:Name="import" Header="Import" HorizontalAlignment="Left" ImageSource="Images\importlarge.png"/>
+                    <ribbon:RibbonApplicationMenuItem x:Name="backup" Header="Backup" HorizontalAlignment="Left" ImageSource="Images\exportlarge.png"/>
+                </ribbon:RibbonApplicationMenu>
+            </ribbon:Ribbon.ApplicationMenu>
+            <ribbon:RibbonTab x:Name="RibbonTabPatient" 
+                              Header="Patient">
+                <ribbon:RibbonGroup x:Name="GroupTabPatientPatient" 
+                                    Header="Patient">
+                    <ribbon:RibbonButton x:Name="ButtonAddPatient"
+                                         SmallImageSource="Images\newsmall.png"
+                                         Label="Add Patient" 
+                                         Click="ButtonAddPatient_Click" />
+                    <ribbon:RibbonButton x:Name="ButtonShowPatient"
+                                         SmallImageSource="Images\showpatientsmall.png"
+                                         Label="Show Patient" />
+                    <ribbon:RibbonButton x:Name="ButtonChangePatient"
+                                         SmallImageSource="Images\editpatientsmall.png"
+                                         Label="Change Patient" />
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup x:Name="GroupTabPatientVisit" 
+                                    Header="Visits">
+                    <ribbon:RibbonButton x:Name="ButtonAddVisit"
+                                         SmallImageSource="Images\addsmall.png"
+                                         Label="Add Visit" />
+                    <ribbon:RibbonButton x:Name="ButtonShowVisits"
+                                         SmallImageSource="Images\showlistsmall.png"
+                                         Label="Show Visits" />
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup x:Name="GroupTabPatientOperation" 
+                                    Header="Operation">
+                    <ribbon:RibbonButton x:Name="ButtonAddOp"
+                                         SmallImageSource="Images\addsmall.png"
+                                         Label="Add Op" />
+                    <ribbon:RibbonButton x:Name="ButtonShowOPs"
+                                         SmallImageSource="Images\showlistsmall.png"
+                                         Label="Show Ops" />
+                    <ribbon:RibbonButton x:Name="ButtonPlanOP"
+                                         SmallImageSource="Images\plansmall.png"
+                                         Label="Plan OP" />
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup x:Name="GroupTabPatientFuture" 
+                                    Header="Future">
+                    <ribbon:RibbonButton x:Name="ButtonNextAppointment"
+                                         SmallImageSource="Images\nextsmall.png"
+                                         Label="Next Appointment" />
+                    <ribbon:RibbonButton x:Name="ButtonFinalReport"
+                                         SmallImageSource="Images\reportsmall.png"
+                                         Label="Final Report" />
+                </ribbon:RibbonGroup>
+                <ribbon:RibbonGroup x:Name="GroupTabPatientNextAction" 
+                                    Header="Next Action">
+                    <ribbon:RibbonButton x:Name="ButtonAddNextAction"
+                                         SmallImageSource="Images\addsmall.png"
+                                         Label="Add Next Action" />
+                    <ribbon:RibbonButton x:Name="ButtonShowNextActions"
+                                         SmallImageSource="Images\showlistsmall.png"
+                                         Label="Show Next Actions" />
+                </ribbon:RibbonGroup>
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab x:Name="RibbonTabNextAction" 
+                              Header="Next Action">
+                <ribbon:RibbonGroup x:Name="Group12" 
+                                    Header="Group12">
+                    <ribbon:RibbonButton x:Name="Button12"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="Button1" />
+                    <ribbon:RibbonButton x:Name="Button22"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Button22" />
+                    <ribbon:RibbonButton x:Name="Button32"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Button32" />
+                    <ribbon:RibbonButton x:Name="Button42"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Button42" />
+
+                </ribbon:RibbonGroup>
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab x:Name="RibbonTabColumns" 
+                              Header="Columns">
+                <ribbon:RibbonGroup x:Name="Group123" 
+                                    Header="Group123">
+                    <ribbon:RibbonButton x:Name="Button123"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="Button1" />
+                    <ribbon:RibbonButton x:Name="Button223"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Button22" />
+                    <ribbon:RibbonButton x:Name="Button323"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Button32" />
+                    <ribbon:RibbonButton x:Name="Button423"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Button42" />
+
+                </ribbon:RibbonGroup>
+            </ribbon:RibbonTab>
+            <ribbon:RibbonTab x:Name="RibbonTabPrint" 
+                              Header="Print">
+                <ribbon:RibbonGroup x:Name="Group1234" 
+                                    Header="Group1234">
+                    <ribbon:RibbonButton x:Name="Button1234"
+                                         LargeImageSource="Images\LargeIcon.png"
+                                         Label="Button1" 
+                                         />
+                    <ribbon:RibbonButton x:Name="Button2234"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Button22" />
+                    <ribbon:RibbonButton x:Name="Button3234"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Button32" />
+                    <ribbon:RibbonButton x:Name="Button4234"
+                                         SmallImageSource="Images\SmallIcon.png"
+                                         Label="Button42" />
+
+                </ribbon:RibbonGroup>
+            </ribbon:RibbonTab>
+        </ribbon:Ribbon>
+
+    	<StatusBar DockPanel.Dock="Bottom" Height="30">
+    		<Label Content="ID/Name:"/>
+    		<StatusBarItem Width="100" HorizontalContentAlignment="Stretch">
+    		<TextBox Name="textBoxSearchIdOrName" KeyDown="textBoxSearchIdOrName_KeyDown"/>
+            </StatusBarItem>
+            <Button Name="buttonSerachIdOrName" Content="Search" Click="buttonSerachIdOrName_Click"/>
+    		<Separator />
+    		<ToggleButton x:Name="searchToggle" Checked="ToggleButton_Checked" Unchecked="searchToggle_Unchecked" Content="Advanced Seach"/>
+            <Button Name="buttonViewAllPatients" Content="View All Patients" Click="buttonViewAllPatients_Click" />
+             <Separator />
+    		<Expander x:Name="advancedSearch" Header="Advanced Search" Height="20" Width="100" ExpandDirection="Right">
+    			<Button x:Name="Buttonasd" Width="300" Content="aaa" Height="20" VerticalAlignment="Top" />
+    		</Expander>
+            
+    		<StatusBarItem HorizontalAlignment="Right">
+    			<Label Content="Trallala"/>
+    		</StatusBarItem>
+    	</StatusBar>
+
+        <StackPanel DockPanel.Dock="Bottom" x:Name="searchPanel">
+            <Button Width="80" Content="Suchen"/>
+        </StackPanel>
+
+        <StackPanel DockPanel.Dock="Top" x:Name="detailPanel">
+            <Button Width="80" Content="Details"/>
+            <Grid x:Name="Doener">
+
+                
+               <!-- <local:PatientDetail  />-->
+
+            </Grid>
+        </StackPanel>
+        
+        <DockPanel x:Name="Main" DockPanel.Dock="Bottom">
+            <ListView Name="ListViewMain" SelectionChanged="ListViewMain_SelectionChanged" MouseUp="ListViewMain_MouseUp">
+                <ListView.Resources>
+                    <ContextMenu x:Key="ListViewColumnsContextMenu">
+                        <MenuItem IsCheckable="true" Header="Sort by Address"  />
+                    </ContextMenu>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="ContextMenu" Value="{StaticResource ListViewColumnsContextMenu}" />
+                    </Style>
+                </ListView.Resources>
+                <!--
+                <ListView.ContextMenu>
+                    <ContextMenu Name="ContextMenuPatientValues">
+                        <MenuItem IsCheckable="true" Header="Sort by Customer" HeaderStringFormat="Trallala" Checked="MenuItem_Checked_1" Unchecked="MenuItem_Unchecked_1" />
+                        <MenuItem IsCheckable="true" Header="Sort by Address"  Checked="MenuItem_Checked_1" Unchecked="MenuItem_Unchecked_1" />
+                    </ContextMenu>
+                </ListView.ContextMenu>
+                -->
+                <ListView.View>
+                    <GridView ContextMenuService.ContextMenu="{StaticResource ListViewColumnsContextMenu}">
+                        <GridView.Columns>
+                            <GridViewColumn Width="30" Header="PID" DisplayMemberBinding="{Binding Path=ID}"/>
+                            <GridViewColumn Width="100" Header="First Name" DisplayMemberBinding="{Binding Path=FirstName}"/>
+                            <GridViewColumn Width="100" Header="Sur Name" DisplayMemberBinding="{Binding Path=SurName}"/>
+                            <GridViewColumn Width="30" Header="Age" DisplayMemberBinding="{Binding Path=Age}"/>
+                            <GridViewColumn Width="50" Header="Phone" DisplayMemberBinding="{Binding Path=Phone}"/>
+                            <GridViewColumn Width="30" Header="PID" DisplayMemberBinding="{Binding Path=Sex}"/>
+                            <GridViewColumn Width="30" Header="Weight" DisplayMemberBinding="{Binding Path=Weight }"/>
+                            <GridViewColumn Width="30" Header="Address" DisplayMemberBinding="{Binding Path=Address }"/>
+                            <GridViewColumn Width="30" Header="Asmara" DisplayMemberBinding="{Binding Path=ResidentOfAsmara }"/>
+                            <GridViewColumn Width="30" Header="Ambulant" DisplayMemberBinding="{Binding Path=Ambulant}"/>
+                            <GridViewColumn Width="30" Header="Finished" DisplayMemberBinding="{Binding Path=Finished }"/>
+                            <GridViewColumn Width="30" Header="Linz" DisplayMemberBinding="{Binding Path=Linz}"/>
+                            <GridViewColumn Width="30" Header="WaitList" DisplayMemberBinding="{Binding Path=WaitListStartDate}"/>
+                            <GridViewColumn Width="30" Header="No of OPs" DisplayMemberBinding="{Binding Path=NoOfOPs}"/>
+                            <GridViewColumn Width="30" Header="No of Visits" DisplayMemberBinding="{Binding Path=NoOfVisits}"/>
+                            <GridViewColumn Width="30" Header="Visit Diagnoses" DisplayMemberBinding="{Binding Path=VisitDiagnosis}"/>
+                            <GridViewColumn Width="30" Header="Visit Procedure" DisplayMemberBinding="{Binding Path=VisitProcedure}"/>
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </DockPanel>
+
+    </DockPanel>
+</ribbon:RibbonWindow>
