@@ -1,6 +1,40 @@
 # spd
 SPD Patient Documentation
 
+## Main Projects
+### SPDGUI
+This is the main SPD "Program" using Windows Forms
+### SPDOPWriter
+This is the SPD "Helper Program" for documenting OP specific data using Windows Forms
+
+## Other Projects
+###GPrintLib
+This is my "Gassner Print Library"
+###SPDBL
+SPD Business Logic
+### SPDDAL
+SPD Data abstraction layer
+### SPDDObj
+Project that holds Domain Objects and global stuff
+### SPDSetupWIX
+SPD Installer project using Wix
+### SPDGUIWPF
+First Steps trying to make a new WPF based GUI, but event not alpha... (not usable)
+### SPDTest
+Some Tests
+### SPDWCFService
+DEPRECATED is a WCF based Service for multiuser support
+### SPDWCFClient
+DEPRECATED is a WCF based Client for multiuser support
+### VoiceInfo
+DEPRECATED is a support for Voice Input
+
+## Requirements
+### .net Framework 4.6
+### DB
+For usage with Access .accdb File, the AccessDatabaseEngine from Microsoft hat to be installed.
+For usage with other DBs the DDL file has to be executed and the DB has to be configured in SPD
+
 ## Credits
 There are some Libraries, that are under different licences. Be sure to 
 
