@@ -79,6 +79,7 @@ namespace SPD.GUI {
             this.buttonListDetails = new System.Windows.Forms.Button();
             this.buttonListTitle = new System.Windows.Forms.Button();
             this.groupBoxPrintPatientList = new System.Windows.Forms.GroupBox();
+            this.checkBoxUseOPDataIfAvailable = new System.Windows.Forms.CheckBox();
             this.labelHeadline = new System.Windows.Forms.Label();
             this.listBoxHeadline = new System.Windows.Forms.ListBox();
             this.buttonPrintPatientListHTML = new System.Windows.Forms.Button();
@@ -88,7 +89,6 @@ namespace SPD.GUI {
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.buttonPrintWaitListHTML = new System.Windows.Forms.Button();
-            this.checkBoxUseOPDataIfAvailable = new System.Windows.Forms.CheckBox();
             this.groupBoxNextAction.SuspendLayout();
             this.groupBoxPrintableDetails.SuspendLayout();
             this.groupBoxLabelPrinting.SuspendLayout();
@@ -550,7 +550,6 @@ namespace SPD.GUI {
             this.groupBoxTemperaturCurves.TabIndex = 6;
             this.groupBoxTemperaturCurves.TabStop = false;
             this.groupBoxTemperaturCurves.Text = "Print Temperatur Curves";
-            this.groupBoxTemperaturCurves.UseWaitCursor = true;
             // 
             // buttonPrintA3TemperaturCurve
             // 
@@ -560,7 +559,6 @@ namespace SPD.GUI {
             this.buttonPrintA3TemperaturCurve.TabIndex = 0;
             this.buttonPrintA3TemperaturCurve.Text = "Print Temperatur Curve";
             this.buttonPrintA3TemperaturCurve.UseVisualStyleBackColor = true;
-            this.buttonPrintA3TemperaturCurve.UseWaitCursor = true;
             this.buttonPrintA3TemperaturCurve.Click += new System.EventHandler(this.buttonPrintA3TemperaturCurve_Click);
             // 
             // listBoxCopys
@@ -570,7 +568,6 @@ namespace SPD.GUI {
             this.listBoxCopys.Name = "listBoxCopys";
             this.listBoxCopys.Size = new System.Drawing.Size(40, 69);
             this.listBoxCopys.TabIndex = 2;
-            this.listBoxCopys.UseWaitCursor = true;
             // 
             // labelSheets
             // 
@@ -580,7 +577,6 @@ namespace SPD.GUI {
             this.labelSheets.Size = new System.Drawing.Size(34, 13);
             this.labelSheets.TabIndex = 32;
             this.labelSheets.Text = "Copy:";
-            this.labelSheets.UseWaitCursor = true;
             // 
             // labelDays
             // 
@@ -590,7 +586,6 @@ namespace SPD.GUI {
             this.labelDays.Size = new System.Drawing.Size(34, 13);
             this.labelDays.TabIndex = 31;
             this.labelDays.Text = "Days:";
-            this.labelDays.UseWaitCursor = true;
             // 
             // listBoxDays
             // 
@@ -599,7 +594,6 @@ namespace SPD.GUI {
             this.listBoxDays.Name = "listBoxDays";
             this.listBoxDays.Size = new System.Drawing.Size(49, 69);
             this.listBoxDays.TabIndex = 1;
-            this.listBoxDays.UseWaitCursor = true;
             // 
             // listViewAllPatients
             // 
@@ -653,6 +647,16 @@ namespace SPD.GUI {
             this.groupBoxPrintPatientList.TabIndex = 9;
             this.groupBoxPrintPatientList.TabStop = false;
             this.groupBoxPrintPatientList.Text = "Print Patient List";
+            // 
+            // checkBoxUseOPDataIfAvailable
+            // 
+            this.checkBoxUseOPDataIfAvailable.AutoSize = true;
+            this.checkBoxUseOPDataIfAvailable.Location = new System.Drawing.Point(17, 19);
+            this.checkBoxUseOPDataIfAvailable.Name = "checkBoxUseOPDataIfAvailable";
+            this.checkBoxUseOPDataIfAvailable.Size = new System.Drawing.Size(89, 17);
+            this.checkBoxUseOPDataIfAvailable.TabIndex = 4;
+            this.checkBoxUseOPDataIfAvailable.Text = "Use OP Data";
+            this.checkBoxUseOPDataIfAvailable.UseVisualStyleBackColor = true;
             // 
             // labelHeadline
             // 
@@ -741,16 +745,6 @@ namespace SPD.GUI {
             this.buttonPrintWaitListHTML.Text = "Print Wait List HTML";
             this.buttonPrintWaitListHTML.UseVisualStyleBackColor = true;
             this.buttonPrintWaitListHTML.Click += new System.EventHandler(this.buttonPrintWaitListHTML_Click);
-            // 
-            // checkBoxUseOPDataIfAvailable
-            // 
-            this.checkBoxUseOPDataIfAvailable.AutoSize = true;
-            this.checkBoxUseOPDataIfAvailable.Location = new System.Drawing.Point(17, 19);
-            this.checkBoxUseOPDataIfAvailable.Name = "checkBoxUseOPDataIfAvailable";
-            this.checkBoxUseOPDataIfAvailable.Size = new System.Drawing.Size(89, 17);
-            this.checkBoxUseOPDataIfAvailable.TabIndex = 4;
-            this.checkBoxUseOPDataIfAvailable.Text = "Use OP Data";
-            this.checkBoxUseOPDataIfAvailable.UseVisualStyleBackColor = true;
             // 
             // PrintMorePatientsControl
             // 

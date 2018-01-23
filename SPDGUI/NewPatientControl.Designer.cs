@@ -271,7 +271,7 @@ namespace SPD.GUI {
             // 
             // buttonSubmitCalendar
             // 
-            this.buttonSubmitCalendar.Location = new System.Drawing.Point(506, 12);
+            this.buttonSubmitCalendar.Location = new System.Drawing.Point(541, 12);
             this.buttonSubmitCalendar.Name = "buttonSubmitCalendar";
             this.buttonSubmitCalendar.Size = new System.Drawing.Size(81, 23);
             this.buttonSubmitCalendar.TabIndex = 17;
@@ -281,7 +281,7 @@ namespace SPD.GUI {
             // 
             // buttonNoCalender
             // 
-            this.buttonNoCalender.Location = new System.Drawing.Point(506, 41);
+            this.buttonNoCalender.Location = new System.Drawing.Point(541, 41);
             this.buttonNoCalender.Name = "buttonNoCalender";
             this.buttonNoCalender.Size = new System.Drawing.Size(81, 23);
             this.buttonNoCalender.TabIndex = 18;

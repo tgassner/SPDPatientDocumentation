@@ -329,7 +329,7 @@ namespace SPD.GUI {
             // labelFindPhoneNr
             // 
             this.labelFindPhoneNr.AutoSize = true;
-            this.labelFindPhoneNr.Location = new System.Drawing.Point(20, 32);
+            this.labelFindPhoneNr.Location = new System.Drawing.Point(19, 32);
             this.labelFindPhoneNr.Name = "labelFindPhoneNr";
             this.labelFindPhoneNr.Size = new System.Drawing.Size(41, 13);
             this.labelFindPhoneNr.TabIndex = 40;

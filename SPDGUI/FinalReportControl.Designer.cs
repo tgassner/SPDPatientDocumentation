@@ -39,7 +39,7 @@ namespace SPD.GUI {
             // labelFurtherTreatment
             // 
             this.labelFurtherTreatment.AutoSize = true;
-            this.labelFurtherTreatment.Location = new System.Drawing.Point(126, 37);
+            this.labelFurtherTreatment.Location = new System.Drawing.Point(141, 37);
             this.labelFurtherTreatment.Name = "labelFurtherTreatment";
             this.labelFurtherTreatment.Size = new System.Drawing.Size(67, 13);
             this.labelFurtherTreatment.TabIndex = 0;
@@ -47,7 +47,7 @@ namespace SPD.GUI {
             // 
             // textBoxFinalReport
             // 
-            this.textBoxFinalReport.Location = new System.Drawing.Point(199, 34);
+            this.textBoxFinalReport.Location = new System.Drawing.Point(214, 34);
             this.textBoxFinalReport.Multiline = true;
             this.textBoxFinalReport.Name = "textBoxFinalReport";
             this.textBoxFinalReport.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -57,7 +57,7 @@ namespace SPD.GUI {
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(93, 12);
+            this.label2.Location = new System.Drawing.Point(125, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 2;
@@ -66,7 +66,7 @@ namespace SPD.GUI {
             // labelCurrentPatient
             // 
             this.labelCurrentPatient.AutoSize = true;
-            this.labelCurrentPatient.Location = new System.Drawing.Point(175, 12);
+            this.labelCurrentPatient.Location = new System.Drawing.Point(211, 12);
             this.labelCurrentPatient.Name = "labelCurrentPatient";
             this.labelCurrentPatient.Size = new System.Drawing.Size(35, 13);
             this.labelCurrentPatient.TabIndex = 3;
@@ -151,7 +151,7 @@ namespace SPD.GUI {
             this.Controls.Add(this.textBoxFinalReport);
             this.Controls.Add(this.labelFurtherTreatment);
             this.Name = "FinalReportControl";
-            this.Size = new System.Drawing.Size(661, 476);
+            this.Size = new System.Drawing.Size(687, 476);
             this.ResumeLayout(false);
             this.PerformLayout();
 
