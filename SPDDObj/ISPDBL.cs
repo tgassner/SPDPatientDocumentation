@@ -78,6 +78,13 @@ namespace SPD.BL.Interfaces {
         [OperationContract]
         string GetFinalReportByPatientId(long pID);
         /// <summary>
+        /// Gets the stone report by patient id.
+        /// </summary>
+        /// <param name="pID">The p ID.</param>
+        /// <returns></returns>
+        [OperationContract]
+        string GetStoneReportByPatientId(long pID);
+        /// <summary>
         /// Inserts the final report.
         /// </summary>
         /// <param name="finalReport">The ft.</param>

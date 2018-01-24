@@ -374,11 +374,11 @@ namespace SPD.GUI {
         {
             this.preparePatientSearchSubControlChange(e.Patient);
             this.stoneReportControl.Clear();
-            string ft = patComp.GetFinalReportByPatientId(currentPatient.Id);
+            string sr = patComp.GetStoneReportByPatientId(currentPatient.Id);
             this.stoneReportControl.Enabled = true;
             this.stoneReportControl.Location = getPatientSearchSubMaskLocation();
             this.stoneReportControl.CurrentPatient = currentPatient;
-            this.stoneReportControl.Init(ft, this.patComp);
+            this.stoneReportControl.Init(sr, this.patComp);
             this.Controls.Add(this.stoneReportControl);
             this.stoneReportControl.TextBoxStoneReport.Focus();
             this.stoneReportControl.TextBoxStoneReport.Select(50000, 0);
