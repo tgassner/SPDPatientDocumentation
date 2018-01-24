@@ -8,11 +8,11 @@ using System;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SPD Patient Documentation")]
-[assembly: AssemblyDescription(("SPD Patient Documentation\r\n\r\n http://spd.thomas-gassner.at\r\n\r\nSPD is designed for a team of urologists to document patient data and store the data in Eritrea.\r\n\r\nThis programm is based in .net Framework 4.0\r\n\r\nCredits:\r\n - log4net\r\n - Mono.Security\r\n - mysql.data\r\n - Npgsql"))]
+[assembly: AssemblyDescription(("SPD Patient Documentation\r\n\r\n http://spd.thomas-gassner.at\r\n\r\nSPD is designed for a team of urologists to document patient data and store the data in Eritrea.\r\n\r\nThis programm is based in .net Framework 4.6\r\n\r\nCredits:\r\n - log4net\r\n - Mono.Security\r\n - mysql.data\r\n - Npgsql"))]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Ing. Thomas Gassner, M.Sc. - thomas.gassner@gmx.net")]
 [assembly: AssemblyProduct("SPD Patient Documentation")]
-[assembly: AssemblyCopyright("Copyright © 2015")]
+[assembly: AssemblyCopyright("Copyright © 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,6 +31,6 @@ using System;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("5.4.1.0")]
-[assembly: AssemblyFileVersion("5.4.1.0")]
+[assembly: AssemblyVersion("5.5.0.0")]
+[assembly: AssemblyFileVersion("5.5.0.0")]
 [assembly: NeutralResourcesLanguageAttribute("en")]

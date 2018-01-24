@@ -3,7 +3,7 @@
   <?define Manufactor = "Ing. Thomas Gassner, M.Sc."?>
   <?define UpgradeGuid = "{86F0294C-075C-497C-8EDF-33B5849B9CC3}"?>
   <?define Name = "SPD Patient Documentation"?>
-  <?define Url = "http://spd.thomas-gassner.at"?>
+  <?define Url = "https://github.com/tgassner/SPDPatientDocumentation"?>
   <Product
   Id="*"
   Name="SPD Patient Documentation"
