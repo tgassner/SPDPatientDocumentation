@@ -79,6 +79,7 @@ namespace SPD.GUI {
             this.buttonAddToWaitList = new System.Windows.Forms.Button();
             this.buttonRemoveFromWaitList = new System.Windows.Forms.Button();
             this.buttonIdCardPrint = new System.Windows.Forms.Button();
+            this.buttonStoneReport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewPatients
@@ -95,7 +96,7 @@ namespace SPD.GUI {
             // 
             // buttonPatientDataChange
             // 
-            this.buttonPatientDataChange.Location = new System.Drawing.Point(378, 204);
+            this.buttonPatientDataChange.Location = new System.Drawing.Point(354, 204);
             this.buttonPatientDataChange.Name = "buttonPatientDataChange";
             this.buttonPatientDataChange.Size = new System.Drawing.Size(74, 23);
             this.buttonPatientDataChange.TabIndex = 25;
@@ -115,7 +116,7 @@ namespace SPD.GUI {
             // 
             // buttonShowVisits
             // 
-            this.buttonShowVisits.Location = new System.Drawing.Point(67, 204);
+            this.buttonShowVisits.Location = new System.Drawing.Point(63, 204);
             this.buttonShowVisits.Name = "buttonShowVisits";
             this.buttonShowVisits.Size = new System.Drawing.Size(68, 23);
             this.buttonShowVisits.TabIndex = 20;
@@ -125,9 +126,9 @@ namespace SPD.GUI {
             // 
             // buttonPrint
             // 
-            this.buttonPrint.Location = new System.Drawing.Point(951, 204);
+            this.buttonPrint.Location = new System.Drawing.Point(945, 204);
             this.buttonPrint.Name = "buttonPrint";
-            this.buttonPrint.Size = new System.Drawing.Size(36, 23);
+            this.buttonPrint.Size = new System.Drawing.Size(42, 23);
             this.buttonPrint.TabIndex = 30;
             this.buttonPrint.Text = "Prin&t";
             this.buttonPrint.UseVisualStyleBackColor = true;
@@ -135,7 +136,7 @@ namespace SPD.GUI {
             // 
             // buttonAddOperation
             // 
-            this.buttonAddOperation.Location = new System.Drawing.Point(141, 204);
+            this.buttonAddOperation.Location = new System.Drawing.Point(133, 204);
             this.buttonAddOperation.Name = "buttonAddOperation";
             this.buttonAddOperation.Size = new System.Drawing.Size(52, 23);
             this.buttonAddOperation.TabIndex = 21;
@@ -145,7 +146,7 @@ namespace SPD.GUI {
             // 
             // buttonFinalReport
             // 
-            this.buttonFinalReport.Location = new System.Drawing.Point(458, 204);
+            this.buttonFinalReport.Location = new System.Drawing.Point(430, 204);
             this.buttonFinalReport.Name = "buttonFinalReport";
             this.buttonFinalReport.Size = new System.Drawing.Size(63, 23);
             this.buttonFinalReport.TabIndex = 26;
@@ -155,7 +156,7 @@ namespace SPD.GUI {
             // 
             // buttonShowOperations
             // 
-            this.buttonShowOperations.Location = new System.Drawing.Point(199, 204);
+            this.buttonShowOperations.Location = new System.Drawing.Point(187, 204);
             this.buttonShowOperations.Name = "buttonShowOperations";
             this.buttonShowOperations.Size = new System.Drawing.Size(65, 23);
             this.buttonShowOperations.TabIndex = 22;
@@ -165,7 +166,7 @@ namespace SPD.GUI {
             // 
             // buttonImages
             // 
-            this.buttonImages.Location = new System.Drawing.Point(793, 204);
+            this.buttonImages.Location = new System.Drawing.Point(799, 204);
             this.buttonImages.Name = "buttonImages";
             this.buttonImages.Size = new System.Drawing.Size(37, 23);
             this.buttonImages.TabIndex = 28;
@@ -175,7 +176,7 @@ namespace SPD.GUI {
             // 
             // buttonPatientShowData
             // 
-            this.buttonPatientShowData.Location = new System.Drawing.Point(330, 204);
+            this.buttonPatientShowData.Location = new System.Drawing.Point(310, 204);
             this.buttonPatientShowData.Name = "buttonPatientShowData";
             this.buttonPatientShowData.Size = new System.Drawing.Size(42, 23);
             this.buttonPatientShowData.TabIndex = 24;
@@ -219,7 +220,7 @@ namespace SPD.GUI {
             // 
             // buttonPlanOP
             // 
-            this.buttonPlanOP.Location = new System.Drawing.Point(270, 204);
+            this.buttonPlanOP.Location = new System.Drawing.Point(254, 204);
             this.buttonPlanOP.Name = "buttonPlanOP";
             this.buttonPlanOP.Size = new System.Drawing.Size(54, 23);
             this.buttonPlanOP.TabIndex = 23;
@@ -246,7 +247,7 @@ namespace SPD.GUI {
             // 
             // buttonNextAction
             // 
-            this.buttonNextAction.Location = new System.Drawing.Point(836, 204);
+            this.buttonNextAction.Location = new System.Drawing.Point(838, 204);
             this.buttonNextAction.Name = "buttonNextAction";
             this.buttonNextAction.Size = new System.Drawing.Size(70, 23);
             this.buttonNextAction.TabIndex = 29;
@@ -404,7 +405,7 @@ namespace SPD.GUI {
             // 
             // buttonPrintNextAppointment
             // 
-            this.buttonPrintNextAppointment.Location = new System.Drawing.Point(527, 204);
+            this.buttonPrintNextAppointment.Location = new System.Drawing.Point(545, 204);
             this.buttonPrintNextAppointment.Name = "buttonPrintNextAppointment";
             this.buttonPrintNextAppointment.Size = new System.Drawing.Size(99, 23);
             this.buttonPrintNextAppointment.TabIndex = 27;
@@ -541,7 +542,7 @@ namespace SPD.GUI {
             // 
             // buttonAddToWaitList
             // 
-            this.buttonAddToWaitList.Location = new System.Drawing.Point(633, 204);
+            this.buttonAddToWaitList.Location = new System.Drawing.Point(647, 204);
             this.buttonAddToWaitList.Name = "buttonAddToWaitList";
             this.buttonAddToWaitList.Size = new System.Drawing.Size(71, 23);
             this.buttonAddToWaitList.TabIndex = 56;
@@ -551,7 +552,7 @@ namespace SPD.GUI {
             // 
             // buttonRemoveFromWaitList
             // 
-            this.buttonRemoveFromWaitList.Location = new System.Drawing.Point(710, 204);
+            this.buttonRemoveFromWaitList.Location = new System.Drawing.Point(720, 204);
             this.buttonRemoveFromWaitList.Name = "buttonRemoveFromWaitList";
             this.buttonRemoveFromWaitList.Size = new System.Drawing.Size(77, 23);
             this.buttonRemoveFromWaitList.TabIndex = 57;
@@ -561,7 +562,7 @@ namespace SPD.GUI {
             // 
             // buttonIdCardPrint
             // 
-            this.buttonIdCardPrint.Location = new System.Drawing.Point(912, 205);
+            this.buttonIdCardPrint.Location = new System.Drawing.Point(910, 204);
             this.buttonIdCardPrint.Name = "buttonIdCardPrint";
             this.buttonIdCardPrint.Size = new System.Drawing.Size(33, 23);
             this.buttonIdCardPrint.TabIndex = 58;
@@ -569,10 +570,21 @@ namespace SPD.GUI {
             this.buttonIdCardPrint.UseVisualStyleBackColor = true;
             this.buttonIdCardPrint.Click += new System.EventHandler(this.buttonIdCardPrint_Click);
             // 
+            // buttonStoneReport
+            // 
+            this.buttonStoneReport.Location = new System.Drawing.Point(495, 204);
+            this.buttonStoneReport.Name = "buttonStoneReport";
+            this.buttonStoneReport.Size = new System.Drawing.Size(48, 23);
+            this.buttonStoneReport.TabIndex = 59;
+            this.buttonStoneReport.Text = "Stones";
+            this.buttonStoneReport.UseVisualStyleBackColor = true;
+            this.buttonStoneReport.Click += new System.EventHandler(this.buttonStoneReport_Click);
+            // 
             // PatientSearchControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonStoneReport);
             this.Controls.Add(this.buttonIdCardPrint);
             this.Controls.Add(this.buttonRemoveFromWaitList);
             this.Controls.Add(this.buttonAddToWaitList);
@@ -688,5 +700,6 @@ namespace SPD.GUI {
         private System.Windows.Forms.Button buttonAddToWaitList;
         private System.Windows.Forms.Button buttonRemoveFromWaitList;
         private System.Windows.Forms.Button buttonIdCardPrint;
+        private System.Windows.Forms.Button buttonStoneReport;
     }
 }

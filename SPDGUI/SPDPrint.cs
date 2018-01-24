@@ -596,6 +596,13 @@ namespace SPD.Print {
             pp.AddPrintableObject(new PrintableImageObject(img, 0, 0));
         }
 
+        public void PrintStoneReport(IList<PatientData> patients, bool operations, bool visits) {
+            if (patients == null || patients.Count == 0)
+            {
+                return;
+            }
+            MessageBox.Show("TODO implement Stones print!");
+        }
 
         /// <summary>
         /// Prints the final report.

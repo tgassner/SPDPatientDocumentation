@@ -13,9 +13,9 @@ CREATE TABLE patient (
 	ambulant BIGINT not null,
 	linz BIGINT not null,
 	waitListStartDate text,
+	stoneReport text not null,
 	PRIMARY KEY (patientID)
 );
-
 
 CREATE TABLE operation (
 	operationID  bigserial NOT NULL ,

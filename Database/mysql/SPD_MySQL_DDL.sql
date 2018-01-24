@@ -13,6 +13,7 @@ CREATE TABLE `patient` (
 	ambulant BIGINT not null,
 	linz BIGINT not null,
 	waitListStartDate text,
+	stoneReport longtext not null,
 	PRIMARY KEY (`patientID`)
 );
 

@@ -123,7 +123,7 @@ namespace SPD.GUI {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(225, 214);
+            this.ClientSize = new System.Drawing.Size(223, 211);
             this.ControlBox = false;
             this.Controls.Add(this.checkBoxPhotoLinks);
             this.Controls.Add(this.checkBoxFurtherTreatment);
@@ -134,9 +134,9 @@ namespace SPD.GUI {
             this.Controls.Add(this.checkBoxVisits);
             this.Controls.Add(this.buttonCancel);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(233, 241);
+            this.MaximumSize = new System.Drawing.Size(239, 250);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(233, 241);
+            this.MinimumSize = new System.Drawing.Size(239, 250);
             this.Name = "PrintSelectionForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

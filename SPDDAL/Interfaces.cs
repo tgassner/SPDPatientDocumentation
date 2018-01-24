@@ -71,16 +71,34 @@ namespace SPD.DAL {
         /// <returns></returns>
         bool InsertFinalReport(string ft,long pID);
         /// <summary>
+        /// Inserts the stone report.
+        /// </summary>
+        /// <param name="sr">The sr.</param>
+        /// <param name="pID">The p ID.</param>
+        /// <returns></returns>
+        bool InsertStoneReport(string sr, long pID);
+        /// <summary>
         /// Gets the final report by patent ID.
         /// </summary>
         /// <param name="pID">The p ID.</param>
         /// <returns></returns>
         string GetFinalReportByPatentID(long pID);
         /// <summary>
+        /// Gets the stone report by patent ID.
+        /// </summary>
+        /// <param name="pID">The p ID.</param>
+        /// <returns></returns>
+        string GetStoneReportByPatentID(long pID);
+        /// <summary>
         /// Gets all final reports.
         /// </summary>
         /// <returns></returns>
         IDictionary<long, string> GetAllFinalReports();
+        /// <summary>
+        /// Gets all stone reports.
+        /// </summary>
+        /// <returns></returns>
+        IDictionary<long, string> GetAllStoneReports();
     }
 
     /// <summary>

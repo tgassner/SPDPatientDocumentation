@@ -26,11 +26,12 @@ CREATE TABLE patient (
 	furthertreatment varchar2(4000) not null,
 	address varchar2(255) not null,
 	weight number(16,0) not null,
-    residentOfAsmara number(16,0) not null,
+	residentOfAsmara number(16,0) not null,
 	finished number(16,0) not null,
 	ambulant number(16,0) not null,
 	linz number(16,0) not null,
 	waitListStartDate  varchar2(255),
+	stoneReport varchar2(4000) not null,
 	PRIMARY KEY (patientID)
 );
 

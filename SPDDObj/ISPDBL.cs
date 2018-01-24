@@ -85,6 +85,8 @@ namespace SPD.BL.Interfaces {
         /// <returns></returns>
         [OperationContract]
         bool InsertFinalReport(string finalReport, long pID);
+        [OperationContract]
+        bool InsertStonesReport(string stonesReport, long pID);
         /// <summary>
         /// Number the of patients.
         /// </summary>

@@ -43,6 +43,11 @@ namespace SPD.GUI {
     /// </summary>
     public delegate void AddFurtherTreatmentEventHandler(object sender,
              AddFurtherTreatmentEventArgs e);
+
+    public delegate void AddStonesReportEventHandler(object sender,
+        AddStonesReportEventArgs e);
+    
+
     /// <summary>
     /// 
     /// </summary>
@@ -362,6 +367,9 @@ namespace SPD.GUI {
         /// Occurs when [add further treatment].
         /// </summary>
         public event AddFurtherTreatmentEventHandler AddFurtherTreatment;
+
+        public event AddStonesReportEventHandler AddStonesReport;
+
         /// <summary>
         /// Occurs when [show operations].
         /// </summary>
@@ -519,6 +527,16 @@ namespace SPD.GUI {
                 return;
             }
             AddFurtherTreatment(this, new AddFurtherTreatmentEventArgs(getSelectedPatient()));
+        }
+
+        private void buttonStoneReport_Click(object sender, EventArgs e)
+        {
+            if (!PatientSelected())
+            {
+                MessageBox.Show("Please select a patient");
+                return;
+            }
+            AddStonesReport(this, new AddStonesReportEventArgs(getSelectedPatient()));
         }
 
         private void buttonImages_Click(object sender, EventArgs e) {
@@ -753,7 +771,8 @@ namespace SPD.GUI {
         }
 
         #endregion doSearch       
-}
+        
+    }
 
     #region event arguments
 
@@ -844,6 +863,30 @@ namespace SPD.GUI {
         /// <value>The patient.</value>
         public PatientData Patient {
             get {
+                return patient;
+            }
+        }
+    }
+
+    public class AddStonesReportEventArgs : EventArgs
+    {
+        private PatientData patient;
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AddStonesReportEventArgs"/> class.
+        /// </summary>
+        /// <param name="patient">The patient.</param>
+        public AddStonesReportEventArgs(PatientData patient)
+        {
+            this.patient = patient;
+        }
+        /// <summary>
+        /// Gets the patient.
+        /// </summary>
+        /// <value>The patient.</value>
+        public PatientData Patient
+        {
+            get
+            {
                 return patient;
             }
         }

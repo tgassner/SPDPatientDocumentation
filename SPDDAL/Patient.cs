@@ -8,13 +8,15 @@ using log4net.Repository.Hierarchy;
 namespace SPD.DAL {
     class Patient : IPatient {
 
-        const string SQL_FIND_BY_ID = "SELECT patientID, firstname, surname, birthdate, sex, phone, furthertreatment, weight, address, residentOfAsmara, finished, ambulant, linz, waitListStartDate FROM patient WHERE patientID = @patientID";
-        const string SQL_FIND_ALL = "SELECT patientID, firstname, surname, birthdate, sex, phone, furthertreatment, weight, address, residentOfAsmara, finished, ambulant, linz, waitListStartDate FROM patient";
+        const string SQL_FIND_BY_ID = "SELECT patientID, firstname, surname, birthdate, sex, phone, furthertreatment, weight, address, residentOfAsmara, finished, ambulant, linz, waitListStartDate, stoneReport FROM patient WHERE patientID = @patientID";
+        const string SQL_FIND_ALL = "SELECT patientID, firstname, surname, birthdate, sex, phone, furthertreatment, weight, address, residentOfAsmara, finished, ambulant, linz, waitListStartDate, stoneReport FROM patient";
         const string SQL_FIND_DIAGNOSIS = "SELECT DISTINCT p.* FROM patient p, visit v where p.patientID = v.patientid and v.extradiagnosis like @extradiagnosis";
         const string SQL_FIND_PROCEDURE = "SELECT DISTINCT p.* where p.patientID = v.patientid and v.prozedure like @prozedure";
         const string SQL_FIND_FINAL_REPORT = "SELECT * FROM patient where furthertreatment like @furthertreatment";
         const string SQL_GET_FINAL_REPORT_BY_ID = "SELECT furthertreatment from patient WHERE patientID = @patientID";
-        
+        const string SQL_FIND_STONE_REPORT = "SELECT * FROM patient where stoneReport like @stoneReport";
+        const string SQL_GET_STONE_REPORT_BY_ID = "SELECT stoneReport from patient WHERE patientID = @patientID";
+
         readonly string SQL_UPDATE_BY_ID = 
             " UPDATE patient SET                       \n" +
             "   firstname = @firstname,                \n" +
@@ -34,18 +36,22 @@ namespace SPD.DAL {
         
         readonly string SQL_INSERT_BY_ID = 
             "INSERT INTO patient " +
-            "  (firstname, surname, birthdate, sex, phone, furthertreatment, weight, address, residentOfAsmara, finished, ambulant, linz, waitListStartDate) " +
-            " VALUES(@firstname, @surname, @birthdate, @sex, @phone, @furthertreatment, @weight, @address, @residentOfAsmara, @finished, @ambulant, @linz, @waitListStartDate)";
+            "  (firstname, surname, birthdate, sex, phone, furthertreatment, weight, address, residentOfAsmara, finished, ambulant, linz, waitListStartDate, stoneReport) " +
+            " VALUES(@firstname, @surname, @birthdate, @sex, @phone, @furthertreatment, @weight, @address, @residentOfAsmara, @finished, @ambulant, @linz, @waitListStartDate, @stoneReport)";
 
         readonly string SQL_DELETE_BY_ID = "DELETE FROM patient WHERE patientID = @patientID";
         readonly string SQL_INSERT_FINAL_REPORT_BY_ID = "UPDATE patient SET furthertreatment = @furthertreatment where patientID = @patientID";
         readonly string SQL_GET_ALL_FINAL_REPORT = "SELECT patientID, furthertreatment from patient";
+        readonly string SQL_INSERT_STONE_REPORT_BY_ID = "UPDATE patient SET stoneReport = @stoneReport where patientID = @patientID";
+        readonly string SQL_GET_ALL_STONE_REPORT = "SELECT patientID, stoneReport from patient";
+
         readonly string SQL_NUMBEROFPATIENTS = "SELECT count(*) AS numberOfPatients FROM patient";
         static IDbCommand findByIdCmd;
         static IDbCommand findAllCmd;
         static IDbCommand findDiagnosisCmd;
         static IDbCommand findProcedureCmd;
         static IDbCommand findFinalReportCmd;
+        static IDbCommand findStoneReportCmd;
         static IDbCommand updateByIdCmd;
         static IDbCommand insertByIdCmd;
         static IDbCommand deleteByIdCmd;
@@ -53,6 +59,9 @@ namespace SPD.DAL {
         static IDbCommand insertFinalReportCmd;
         static IDbCommand getFinalReportCmd;
         static IDbCommand getAllFinalReportCmd;
+        static IDbCommand insertStoneReportCmd;
+        static IDbCommand getStoneReportCmd;
+        static IDbCommand getAllStoneReportCmd;
         static IDbCommand numberOfPatientsCmd;
 
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -202,6 +211,7 @@ namespace SPD.DAL {
                     insertByIdCmd.Parameters.Add(DbUtil.CreateParameter("@ambulant", DbType.Int64));
                     insertByIdCmd.Parameters.Add(DbUtil.CreateParameter("@linz", DbType.Int64));
                     insertByIdCmd.Parameters.Add(DbUtil.CreateParameter("@waitListStartDate", DbType.String));
+                    insertByIdCmd.Parameters.Add(DbUtil.CreateParameter("@stoneReport", DbType.String));
                 }
 
                 ((IDataParameter)insertByIdCmd.Parameters["@firstname"]).Value = patient.FirstName;
@@ -221,8 +231,8 @@ namespace SPD.DAL {
                 } else {
                     ((IDataParameter)insertByIdCmd.Parameters["@waitListStartDate"]).Value = ((DateTime)patient.WaitListStartDate).ToString("yyyy-MM-dd", DateTimeFormatInfo.InvariantInfo);    
                 }
+                ((IDataParameter)insertByIdCmd.Parameters["@stoneReport"]).Value = "";
                 
-
                 Object insertRet = insertByIdCmd.ExecuteScalar();
 
                 long tend = DateTime.Now.Ticks;
@@ -354,9 +364,45 @@ namespace SPD.DAL {
             }
         }
 
+        public bool InsertStoneReport(string sr, long pID)
+        {
+            try
+            {
+                long tstart = DateTime.Now.Ticks;
+
+                DbUtil.OpenConnection();
+
+                if (insertStoneReportCmd == null)
+                {
+                    insertStoneReportCmd = DbUtil.CreateCommand(SQL_INSERT_STONE_REPORT_BY_ID, DbUtil.CurrentConnection);
+
+                    insertStoneReportCmd.Parameters.Add(DbUtil.CreateParameter("@stoneReport", DbType.String));
+                    insertStoneReportCmd.Parameters.Add(DbUtil.CreateParameter("@patientID", DbType.Int64));
+                }
+
+                ((IDataParameter)insertStoneReportCmd.Parameters["@stoneReport"]).Value = sr;
+                ((IDataParameter)insertStoneReportCmd.Parameters["@patientID"]).Value = pID;
+
+                bool ok = insertStoneReportCmd.ExecuteNonQuery() == 1;
+
+                long tend = DateTime.Now.Ticks;
+                log.Info("Insert Stone Report: " + pID + " " + ok.ToString() + " " + ((tend - tstart) / 10000) + "ms");
+
+                return ok;
+            }
+            catch (Exception e)
+            {
+                log.Error(e.Message);
+                throw e;
+            }
+            finally
+            {
+                DbUtil.CloseConnection();
+            }
+        }
+        
         public string GetFinalReportByPatentID(long pID) {
             try {
-
                 long tstart = DateTime.Now.Ticks;
 
                 DbUtil.OpenConnection();
@@ -386,6 +432,46 @@ namespace SPD.DAL {
             }
         }
 
+        public string GetStoneReportByPatentID(long pID)
+        {
+            try
+            {
+                long tstart = DateTime.Now.Ticks;
+
+                DbUtil.OpenConnection();
+
+                if (getStoneReportCmd == null)
+                {
+                    getStoneReportCmd = DbUtil.CreateCommand(SQL_GET_STONE_REPORT_BY_ID, DbUtil.CurrentConnection);
+                    getStoneReportCmd.Parameters.Add(DbUtil.CreateParameter("@patientID", DbType.Int64));
+                }
+
+                ((IDataParameter)getStoneReportCmd.Parameters["@patientID"]).Value = pID;
+
+                using (IDataReader rdr = getStoneReportCmd.ExecuteReader())
+                {
+                    if (rdr.Read())
+                    {
+
+                        long tend = DateTime.Now.Ticks;
+                        log.Info("Get Stone Report OK" + " " + ((tend - tstart) / 10000) + "ms");
+                        return (string)rdr["stoneReport"];
+                    }
+                    log.Info("Stone Report Not Found: " + pID);
+                    return null;
+                }
+            }
+            catch (Exception e)
+            {
+                log.Error(e.Message);
+                throw e;
+            }
+            finally
+            {
+                DbUtil.CloseConnection();
+            }
+        }
+        
         public IDictionary<long, string> GetAllFinalReports() {
             try {
 
@@ -416,6 +502,45 @@ namespace SPD.DAL {
             }
         }
 
+        public IDictionary<long, string> GetAllStoneReports()
+        {
+            try
+            {
+
+                long tstart = DateTime.Now.Ticks;
+
+                DbUtil.OpenConnection();
+
+                if (getAllStoneReportCmd == null)
+                {
+                    getAllStoneReportCmd = DbUtil.CreateCommand(SQL_GET_ALL_STONE_REPORT, DbUtil.CurrentConnection);
+                }
+
+                IDictionary<long, string> stoneReports = new Dictionary<long, string>();
+
+                using (IDataReader rdr = getAllStoneReportCmd.ExecuteReader())
+                {
+                    while (rdr.Read())
+                    {
+                        stoneReports.Add(Convert.ToInt64(rdr["patientID"]), (string)rdr["stoneReport"]);
+                    }
+
+                    long tend = DateTime.Now.Ticks;
+                    log.Info("Get All Stone Reports" + stoneReports.Count + " reports " + ((tend - tstart) / 10000) + "ms");
+                    return stoneReports;
+                }
+            }
+            catch (Exception e)
+            {
+                log.Error(e.Message);
+                throw e;
+            }
+            finally
+            {
+                DbUtil.CloseConnection();
+            }
+        }
+        
         public IList<PatientData> FindDiagnose(string searchString) {
             try {
 
@@ -507,6 +632,47 @@ namespace SPD.DAL {
                 log.Error(e.Message);
                 throw e;
             } finally {
+                DbUtil.CloseConnection();
+            }
+        }
+
+        public IList<PatientData> FindPatientsByStoneReport(string searchString)
+        {
+            try
+            {
+
+                long tstart = DateTime.Now.Ticks;
+
+                DbUtil.OpenConnection();
+
+                if (findStoneReportCmd == null)
+                {
+                    findStoneReportCmd = DbUtil.CreateCommand(SQL_FIND_STONE_REPORT, DbUtil.CurrentConnection);
+                    findStoneReportCmd.Parameters.Add(DbUtil.CreateParameter("@stoneReport", DbType.String));
+                }
+
+                ((IDataParameter)findStoneReportCmd.Parameters["@stoneReport"]).Value = "%" + searchString + "%";
+
+                using (IDataReader rdr = findStoneReportCmd.ExecuteReader())
+                {
+                    IList<PatientData> patientList = new List<PatientData>();
+                    while (rdr.Read())
+                    {
+                        patientList.Add(fillPatientObject(rdr));
+                    }
+
+                    long tend = DateTime.Now.Ticks;
+                    log.Info("Find Stone Report: " + searchString + " - " + patientList.Count + " Reports" + " " + ((tend - tstart) / 10000) + "ms");
+                    return patientList;
+                }
+            }
+            catch (Exception e)
+            {
+                log.Error(e.Message);
+                throw e;
+            }
+            finally
+            {
                 DbUtil.CloseConnection();
             }
         }

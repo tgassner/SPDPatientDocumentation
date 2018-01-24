@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Forms;
 using SPD.CommonObjects;
 using SPD.DAL;
 using SPD.BL.Interfaces;
@@ -22,6 +23,7 @@ namespace SPD.BL {
         private IList<OperationData> operationBuffer;
         private IList<ImageData> imageBuffer;
         private IDictionary<long, string> finalReportBuffer;
+        private IDictionary<long, string> stonesReportBuffer;
         private IList<DiagnoseGroupData> diagnoseGroupCache;
         private IDictionary<long, IList<long>> patientDiagnoseGroupsCache;
         private IDictionary<long, IList<long>> diagnoseGroupPatientsCache;
@@ -230,6 +232,22 @@ namespace SPD.BL {
             return String.Empty;
         }
 
+        public override string GetStonesReportByPatientId(long pID)
+        {
+            if (stonesReportBuffer == null)
+            {
+                IPatient patientDB = Database.CreatePatient();
+                stonesReportBuffer = patientDB.GetAllStoneReports();
+            }
+
+            if (stonesReportBuffer.ContainsKey(pID))
+            {
+                return stonesReportBuffer[pID];
+            }
+
+            return String.Empty;
+        }
+
         /// <summary>
         /// Inserts the final report.
         /// </summary>
@@ -249,6 +267,25 @@ namespace SPD.BL {
             
             IPatient patientDB = Database.CreatePatient();
             return patientDB.InsertFinalReport(finalReport, pID);
+        }
+
+        public override bool InsertStonesReport(string stonesReport, long pID)
+        {
+            bool ok = base.InsertStonesReport(stonesReport, pID);
+            if (ok && stonesReportBuffer != null)
+            {
+                if (stonesReportBuffer.ContainsKey(pID))
+                {
+                    stonesReportBuffer[pID] = stonesReport;
+                }
+                else
+                {
+                    stonesReportBuffer.Add(pID, stonesReport);
+                }
+            }
+
+            IPatient patientDB = Database.CreatePatient();
+            return patientDB.InsertStoneReport(stonesReport, pID);
         }
 
         /// <summary>

@@ -119,6 +119,17 @@ namespace SPD.BL {
         }
 
         /// <summary>
+        /// Gets the final report by patient id.
+        /// </summary>
+        /// <param name="pID">The p ID.</param>
+        /// <returns></returns>
+        public virtual string GetStonesReportByPatientId(long pID)
+        {
+            IPatient patientDB = Database.CreatePatient();
+            return patientDB.GetStoneReportByPatentID(pID);
+        }
+
+        /// <summary>
         /// Inserts the final report.
         /// </summary>
         /// <param name="finalReport">The ft.</param>
@@ -129,6 +140,12 @@ namespace SPD.BL {
             return patientDB.InsertFinalReport(finalReport, pID);
         }
 
+        public virtual bool InsertStonesReport(string stonesReport, long pID)
+        {
+            IPatient patientDB = Database.CreatePatient();
+            return patientDB.InsertStoneReport(stonesReport, pID);
+        }
+        
         /// <summary>
         /// Number the of patients.
         /// </summary>
