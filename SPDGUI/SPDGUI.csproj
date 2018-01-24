@@ -108,11 +108,11 @@
     <Compile Include="BarDiagramm.Designer.cs">
       <DependentUpon>BarDiagramm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StonesReportControl.cs">
+    <Compile Include="StoneReportControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="StonesReportControl.Designer.cs">
-      <DependentUpon>StonesReportControl.cs</DependentUpon>
+    <Compile Include="StoneReportControl.Designer.cs">
+      <DependentUpon>StoneReportControl.cs</DependentUpon>
     </Compile>
     <Compile Include="PrintWaitingListHtml.cs" />
     <Compile Include="OnlineSPDInfo.cs" />
@@ -252,8 +252,8 @@
     <EmbeddedResource Include="DiagnoseGroupSettingsForm.resx">
       <DependentUpon>DiagnoseGroupSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StonesReportControl.resx">
-      <DependentUpon>StonesReportControl.cs</DependentUpon>
+    <EmbeddedResource Include="StoneReportControl.resx">
+      <DependentUpon>StoneReportControl.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FinalReportControl.resx">

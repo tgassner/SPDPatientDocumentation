@@ -23,7 +23,7 @@ namespace SPD.BL {
         private IList<OperationData> operationBuffer;
         private IList<ImageData> imageBuffer;
         private IDictionary<long, string> finalReportBuffer;
-        private IDictionary<long, string> stonesReportBuffer;
+        private IDictionary<long, string> stoneReportBuffer;
         private IList<DiagnoseGroupData> diagnoseGroupCache;
         private IDictionary<long, IList<long>> patientDiagnoseGroupsCache;
         private IDictionary<long, IList<long>> diagnoseGroupPatientsCache;
@@ -232,17 +232,17 @@ namespace SPD.BL {
             return String.Empty;
         }
 
-        public override string GetStonesReportByPatientId(long pID)
+        public override string GetStoneReportByPatientId(long pID)
         {
-            if (stonesReportBuffer == null)
+            if (stoneReportBuffer == null)
             {
                 IPatient patientDB = Database.CreatePatient();
-                stonesReportBuffer = patientDB.GetAllStoneReports();
+                stoneReportBuffer = patientDB.GetAllStoneReports();
             }
 
-            if (stonesReportBuffer.ContainsKey(pID))
+            if (stoneReportBuffer.ContainsKey(pID))
             {
-                return stonesReportBuffer[pID];
+                return stoneReportBuffer[pID];
             }
 
             return String.Empty;
@@ -269,23 +269,23 @@ namespace SPD.BL {
             return patientDB.InsertFinalReport(finalReport, pID);
         }
 
-        public override bool InsertStonesReport(string stonesReport, long pID)
+        public override bool InsertStoneReport(string stoneReport, long pID)
         {
-            bool ok = base.InsertStonesReport(stonesReport, pID);
-            if (ok && stonesReportBuffer != null)
+            bool ok = base.InsertStoneReport(stoneReport, pID);
+            if (ok && stoneReportBuffer != null)
             {
-                if (stonesReportBuffer.ContainsKey(pID))
+                if (stoneReportBuffer.ContainsKey(pID))
                 {
-                    stonesReportBuffer[pID] = stonesReport;
+                    stoneReportBuffer[pID] = stoneReport;
                 }
                 else
                 {
-                    stonesReportBuffer.Add(pID, stonesReport);
+                    stoneReportBuffer.Add(pID, stoneReport);
                 }
             }
 
             IPatient patientDB = Database.CreatePatient();
-            return patientDB.InsertStoneReport(stonesReport, pID);
+            return patientDB.InsertStoneReport(stoneReport, pID);
         }
 
         /// <summary>

@@ -1,6 +1,6 @@
 namespace SPD.GUI
 {
-    partial class StonesReportControl
+    partial class StoneReportControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -162,7 +162,7 @@ namespace SPD.GUI
             this.checkBoxStoneReportVisits.Text = "Print Visits";
             this.checkBoxStoneReportVisits.UseVisualStyleBackColor = true;
             // 
-            // StonesReportControl
+            // StoneReportControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -179,7 +179,7 @@ namespace SPD.GUI
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxStoneReport);
             this.Controls.Add(this.labelStoneReport);
-            this.Name = "StonesReportControl";
+            this.Name = "StoneReportControl";
             this.Size = new System.Drawing.Size(925, 476);
             this.ResumeLayout(false);
             this.PerformLayout();

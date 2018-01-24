@@ -72,7 +72,7 @@ namespace SPD.GUI {
         private PatientData currentPatient;
         private OPControl newOperation;
         private FinalReportControl furtherTreatmentControl;
-        private StonesReportControl stonesReportControl;
+        private StoneReportControl stoneReportControl;
         private ShowOperationsControl showOperationsControl;
         private ImagesControl imagesControl;
         private PrintMorePatientsControl printMorePatientsControl;
@@ -117,7 +117,7 @@ namespace SPD.GUI {
             this.patientSearchControl.ShowVisits += new ShowVisitsEventHandler(patientSearchControl_ShowVisits);
             this.patientSearchControl.AddOperation += new AddOperationEventHandler(patientSearchControl_AddOperation);
             this.patientSearchControl.AddFurtherTreatment += new AddFurtherTreatmentEventHandler(patientSearchControl_AddFurtherTreatment);
-            this.patientSearchControl.AddStonesReport += new AddStonesReportEventHandler(patientSearchControl_AddStonesReport);
+            this.patientSearchControl.AddStoneReport += new AddStoneReportEventHandler(patientSearchControl_AddStoneReport);
             this.patientSearchControl.ShowOperations += new ShowOperationsEventHandler(patientSearchControl_ShowOperations);
             this.patientSearchControl.AddImages += new ImagesEventHandler(patientSearchControl_AddImages);
             this.patientSearchControl.SelectionChange += new SelectionChangeEventHandler(patientSearchControl_SelectionChange);
@@ -134,8 +134,8 @@ namespace SPD.GUI {
             this.newVisit.Store +=new NewVisitStoreEventHandler(this.visitStore);
             this.furtherTreatmentControl = new FinalReportControl();
             this.furtherTreatmentControl.Store += new NewFinalReportStoreEventHandler(furtherTreatmentControl_Store);
-            this.stonesReportControl = new StonesReportControl();
-            this.stonesReportControl.Store += new NewStonesReportStoreEventHandler(stonesReportControl_Store);
+            this.stoneReportControl = new StoneReportControl();
+            this.stoneReportControl.Store += new NewStoneReportStoreEventHandler(stoneReportControl_Store);
             this.printMorePatientsControl = new PrintMorePatientsControl();
             this.barDiagramm = new BarDiagram();
             this.backupForm = new BackupForm();
@@ -199,10 +199,10 @@ namespace SPD.GUI {
             patComp.InsertFinalReport(ft,currentPatient.Id);
         }
 
-        void stonesReportControl_Store(object sender, NewStonesReportStoreEventArgs e)
+        void stoneReportControl_Store(object sender, NewStoneReportStoreEventArgs e)
         {
-            string sr = e.StonesReport;
-            patComp.InsertStonesReport(sr, currentPatient.Id);
+            string sr = e.StoneReport;
+            patComp.InsertStoneReport(sr, currentPatient.Id);
         }
 
         void imagesControl_Delete(object sender, DeleteImageEventArgs e) {
@@ -370,18 +370,18 @@ namespace SPD.GUI {
             this.furtherTreatmentControl.TextBoxFinalReport.Select(50000, 0);
         }
 
-        void patientSearchControl_AddStonesReport(object sender, AddStonesReportEventArgs e)
+        void patientSearchControl_AddStoneReport(object sender, AddStoneReportEventArgs e)
         {
             this.preparePatientSearchSubControlChange(e.Patient);
-            this.stonesReportControl.Clear();
+            this.stoneReportControl.Clear();
             string ft = patComp.GetFinalReportByPatientId(currentPatient.Id);
-            this.stonesReportControl.Enabled = true;
-            this.stonesReportControl.Location = getPatientSearchSubMaskLocation();
-            this.stonesReportControl.CurrentPatient = currentPatient;
-            this.stonesReportControl.Init(ft, this.patComp);
-            this.Controls.Add(this.stonesReportControl);
-            this.stonesReportControl.TextBoxStoneReport.Focus();
-            this.stonesReportControl.TextBoxStoneReport.Select(50000, 0);
+            this.stoneReportControl.Enabled = true;
+            this.stoneReportControl.Location = getPatientSearchSubMaskLocation();
+            this.stoneReportControl.CurrentPatient = currentPatient;
+            this.stoneReportControl.Init(ft, this.patComp);
+            this.Controls.Add(this.stoneReportControl);
+            this.stoneReportControl.TextBoxStoneReport.Focus();
+            this.stoneReportControl.TextBoxStoneReport.Select(50000, 0);
         }
 
         void patientSearchControl_AddImages(object sender, ImagesEventArgs e) {

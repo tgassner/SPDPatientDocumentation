@@ -44,8 +44,8 @@ namespace SPD.GUI {
     public delegate void AddFurtherTreatmentEventHandler(object sender,
              AddFurtherTreatmentEventArgs e);
 
-    public delegate void AddStonesReportEventHandler(object sender,
-        AddStonesReportEventArgs e);
+    public delegate void AddStoneReportEventHandler(object sender,
+        AddStoneReportEventArgs e);
     
 
     /// <summary>
@@ -368,7 +368,7 @@ namespace SPD.GUI {
         /// </summary>
         public event AddFurtherTreatmentEventHandler AddFurtherTreatment;
 
-        public event AddStonesReportEventHandler AddStonesReport;
+        public event AddStoneReportEventHandler AddStoneReport;
 
         /// <summary>
         /// Occurs when [show operations].
@@ -536,7 +536,7 @@ namespace SPD.GUI {
                 MessageBox.Show("Please select a patient");
                 return;
             }
-            AddStonesReport(this, new AddStonesReportEventArgs(getSelectedPatient()));
+            AddStoneReport(this, new AddStoneReportEventArgs(getSelectedPatient()));
         }
 
         private void buttonImages_Click(object sender, EventArgs e) {
@@ -868,14 +868,14 @@ namespace SPD.GUI {
         }
     }
 
-    public class AddStonesReportEventArgs : EventArgs
+    public class AddStoneReportEventArgs : EventArgs
     {
         private PatientData patient;
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddStonesReportEventArgs"/> class.
+        /// Initializes a new instance of the <see cref="AddStoneReportEventArgs"/> class.
         /// </summary>
         /// <param name="patient">The patient.</param>
-        public AddStonesReportEventArgs(PatientData patient)
+        public AddStoneReportEventArgs(PatientData patient)
         {
             this.patient = patient;
         }

@@ -119,11 +119,11 @@ namespace SPD.BL {
         }
 
         /// <summary>
-        /// Gets the final report by patient id.
+        /// Gets the stone report by patient id.
         /// </summary>
         /// <param name="pID">The p ID.</param>
         /// <returns></returns>
-        public virtual string GetStonesReportByPatientId(long pID)
+        public virtual string GetStoneReportByPatientId(long pID)
         {
             IPatient patientDB = Database.CreatePatient();
             return patientDB.GetStoneReportByPatentID(pID);
@@ -140,10 +140,10 @@ namespace SPD.BL {
             return patientDB.InsertFinalReport(finalReport, pID);
         }
 
-        public virtual bool InsertStonesReport(string stonesReport, long pID)
+        public virtual bool InsertStoneReport(string stoneReport, long pID)
         {
             IPatient patientDB = Database.CreatePatient();
-            return patientDB.InsertStoneReport(stonesReport, pID);
+            return patientDB.InsertStoneReport(stoneReport, pID);
         }
         
         /// <summary>

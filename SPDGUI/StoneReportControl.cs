@@ -14,13 +14,13 @@ namespace SPD.GUI {
     /// <summary>
     /// 
     /// </summary>
-    public delegate void NewStonesReportStoreEventHandler(object sender,
-             NewStonesReportStoreEventArgs e);
+    public delegate void NewStoneReportStoreEventHandler(object sender,
+             NewStoneReportStoreEventArgs e);
 
     /// <summary>
     /// 
     /// </summary>
-    public partial class StonesReportControl : UserControl {
+    public partial class StoneReportControl : UserControl {
         private PatientData currentPatient;
         private string stoneReport;
         private ISPDBL patComp;
@@ -31,7 +31,7 @@ namespace SPD.GUI {
             get { return textBoxStoneReport; }
         }
 
-        public StonesReportControl() {
+        public StoneReportControl() {
             InitializeComponent();
 
         }
@@ -82,10 +82,10 @@ namespace SPD.GUI {
         /// <summary>
         /// Occurs when [store].
         /// </summary>
-        public event NewStonesReportStoreEventHandler Store;
+        public event NewStoneReportStoreEventHandler Store;
 
         private void buttonStore_Click(object sender, EventArgs e) {
-            NewStonesReportStoreEventArgs e2 = new NewStonesReportStoreEventArgs(
+            NewStoneReportStoreEventArgs e2 = new NewStoneReportStoreEventArgs(
                 textBoxStoneReport.Text);
             Store(this, e2);
             //Clear();
@@ -123,15 +123,15 @@ namespace SPD.GUI {
     /// <summary>
     /// 
     /// </summary>
-    public class NewStonesReportStoreEventArgs : EventArgs {
-        private string stonesReport;
+    public class NewStoneReportStoreEventArgs : EventArgs {
+        private string stoneReport;
 
-        public NewStonesReportStoreEventArgs(string stonesReport) {
-            this.stonesReport = stonesReport;
+        public NewStoneReportStoreEventArgs(string stoneReport) {
+            this.stoneReport = stoneReport;
         }
 
-        public string StonesReport {
-            get { return stonesReport; }
+        public string StoneReport {
+            get { return stoneReport; }
         }
     }
 }
