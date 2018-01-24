@@ -84,19 +84,40 @@ namespace SPD.GUI {
         /// </summary>
         public event NewStoneReportStoreEventHandler Store;
 
-        private void buttonStore_Click(object sender, EventArgs e) {
+        private void buttonStore_Click(object sender, EventArgs e)
+        {
+            store();
+        }
+
+        private void store()
+        {
             NewStoneReportStoreEventArgs e2 = new NewStoneReportStoreEventArgs(
                 textBoxStoneReport.Text);
             Store(this, e2);
-            //Clear();
         }
 
-        private void buttonPrintStoneReport_Click(object sender, EventArgs e)
-        {
+        private void buttonStoreAndPrintOPs_Click(object sender, EventArgs e) {
+            store();
             SPDPrint print = new SPDPrint(this.patComp);
             IList<PatientData> patients = new List<PatientData>();
             patients.Add(currentPatient);
-            print.PrintStoneReport(patients, checkBoxStoneReportOperations.Checked, checkBoxStoneReportVisits.Checked);
+            print.PrintStoneReport(patients, true, false);
+        }
+
+        private void buttonStoreAndPrintVisits_Click(object sender, EventArgs e) {
+            store();
+            SPDPrint print = new SPDPrint(this.patComp);
+            IList<PatientData> patients = new List<PatientData>();
+            patients.Add(currentPatient);
+            print.PrintStoneReport(patients, false, true);
+        }
+
+        private void buttonStoreAndPrintOPsAndVisits_Click(object sender, EventArgs e) {
+            store();
+            SPDPrint print = new SPDPrint(this.patComp);
+            IList<PatientData> patients = new List<PatientData>();
+            patients.Add(currentPatient);
+            print.PrintStoneReport(patients, true, true);
         }
 
         private void monthCalendarStoneReport_DateSelected(object sender, DateRangeEventArgs e) {

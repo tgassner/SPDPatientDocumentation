@@ -17,7 +17,7 @@ namespace SPD.GUI {
         public ShortcutsForm() {
             InitializeComponent();
             richTextBoxShortcuts.Text =
-                "Simple Patient Documentation" + "\n" +
+                "SPD Patient Documentation" + "\n" +
                 "Shortcuts" + "\n" +
                 "\n" +
                 "[ALT] N	New Patient" + "\n" +
@@ -47,13 +47,13 @@ namespace SPD.GUI {
                 "[ALT] B	Backup";
 
             richTextBoxShortcuts.Font = new Font("Arial", 11);
-            richTextBoxShortcuts.Select(0, 28);
+            richTextBoxShortcuts.Select(0, 35);
             richTextBoxShortcuts.SelectionFont = new Font("Arial", 13, FontStyle.Bold);
-            richTextBoxShortcuts.Select(0, 6);
+            richTextBoxShortcuts.Select(0, 3);
             richTextBoxShortcuts.SelectionColor = Color.Red;
-            richTextBoxShortcuts.Select(7, 7);
+            richTextBoxShortcuts.Select(4, 7);
             richTextBoxShortcuts.SelectionColor = Color.Green;
-            richTextBoxShortcuts.Select(15, 13);
+            richTextBoxShortcuts.Select(11, 14);
             richTextBoxShortcuts.SelectionColor = Color.Blue;
 
         }

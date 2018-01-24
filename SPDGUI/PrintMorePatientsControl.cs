@@ -175,6 +175,48 @@ namespace SPD.GUI {
             print.PrintA3TemperaturCurve(toPrintPatients, weeks, copies, SPDPrint.PrintFormat.A3, null);
         }
 
+        private void buttonPrintStoneReportOPs_Click(object sender, EventArgs e)
+        {
+            IList<PatientData> toPrintPatients = getSelectedPatients();
+
+            if (toPrintPatients.Count <= 0)
+            {
+                MessageBox.Show("No patients selected!\nPlease select one or more Patients to print");
+                return;
+            }
+
+            SPDPrint print = new SPDPrint(this.patComp);
+            print.PrintStoneReport(toPrintPatients, true, false);
+        }
+
+        private void buttonPrintStoneReportVisits_Click(object sender, EventArgs e)
+        {
+            IList<PatientData> toPrintPatients = getSelectedPatients();
+
+            if (toPrintPatients.Count <= 0)
+            {
+                MessageBox.Show("No patients selected!\nPlease select one or more Patients to print");
+                return;
+            }
+
+            SPDPrint print = new SPDPrint(this.patComp);
+            print.PrintStoneReport(toPrintPatients, false, true);
+        }
+
+        private void buttonPrintStoneReportOPAndVisits_Click(object sender, EventArgs e)
+        {
+            IList<PatientData> toPrintPatients = getSelectedPatients();
+
+            if (toPrintPatients.Count <= 0)
+            {
+                MessageBox.Show("No patients selected!\nPlease select one or more Patients to print");
+                return;
+            }
+
+            SPDPrint print = new SPDPrint(this.patComp);
+            print.PrintStoneReport(toPrintPatients, true, true);
+        }
+
         private void buttonPrintLabels_Click(object sender, EventArgs e) { 
             IList<PatientData> toPrintPatients = new List<PatientData>();
 

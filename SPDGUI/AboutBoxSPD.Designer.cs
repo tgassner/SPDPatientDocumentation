@@ -81,7 +81,7 @@ namespace SPD.GUI {
             this.labelProductName.Name = "labelProductName";
             this.labelProductName.Size = new System.Drawing.Size(271, 17);
             this.labelProductName.TabIndex = 19;
-            this.labelProductName.Text = "Simple Patient Documentation";
+            this.labelProductName.Text = "SPD Patient Documentation";
             this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelVersion
@@ -130,7 +130,7 @@ namespace SPD.GUI {
             this.textBoxDescription.Size = new System.Drawing.Size(271, 126);
             this.textBoxDescription.TabIndex = 23;
             this.textBoxDescription.TabStop = false;
-            this.textBoxDescription.Text = "Simple Patient Documentation (SPD) was designed for a team of croakers to documen" +
+            this.textBoxDescription.Text = "SPD Patient Documentation was designed for a team of croakers to documen" +
                 "t patient data and store the data in Eritrea.";
             // 
             // okButton

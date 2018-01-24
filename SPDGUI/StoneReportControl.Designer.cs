@@ -36,11 +36,11 @@ namespace SPD.GUI
             this.monthCalendarStoneReport = new System.Windows.Forms.MonthCalendar();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.buttonPrintStoneReport = new System.Windows.Forms.Button();
+            this.buttonStoreAndPrintOPs = new System.Windows.Forms.Button();
             this.listBoxStoneReportTextElements = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.checkBoxStoneReportOperations = new System.Windows.Forms.CheckBox();
-            this.checkBoxStoneReportVisits = new System.Windows.Forms.CheckBox();
+            this.buttonStoreAndPrintVisits = new System.Windows.Forms.Button();
+            this.buttonStoreAndPrintOPsAndVisits = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelStoneReport
@@ -58,7 +58,7 @@ namespace SPD.GUI
             this.textBoxStoneReport.Multiline = true;
             this.textBoxStoneReport.Name = "textBoxStoneReport";
             this.textBoxStoneReport.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxStoneReport.Size = new System.Drawing.Size(458, 406);
+            this.textBoxStoneReport.Size = new System.Drawing.Size(509, 406);
             this.textBoxStoneReport.TabIndex = 0;
             // 
             // label2
@@ -81,9 +81,9 @@ namespace SPD.GUI
             // 
             // buttonStore
             // 
-            this.buttonStore.Location = new System.Drawing.Point(178, 446);
+            this.buttonStore.Location = new System.Drawing.Point(214, 446);
             this.buttonStore.Name = "buttonStore";
-            this.buttonStore.Size = new System.Drawing.Size(106, 23);
+            this.buttonStore.Size = new System.Drawing.Size(68, 23);
             this.buttonStore.TabIndex = 1;
             this.buttonStore.Text = "Store";
             this.buttonStore.UseVisualStyleBackColor = true;
@@ -114,15 +114,15 @@ namespace SPD.GUI
             this.label3.TabIndex = 5;
             this.label3.Text = "position into the Stone Report.";
             // 
-            // buttonPrintStoneReport
+            // buttonStoreAndPrintOPs
             // 
-            this.buttonPrintStoneReport.Location = new System.Drawing.Point(290, 446);
-            this.buttonPrintStoneReport.Name = "buttonPrintStoneReport";
-            this.buttonPrintStoneReport.Size = new System.Drawing.Size(124, 23);
-            this.buttonPrintStoneReport.TabIndex = 2;
-            this.buttonPrintStoneReport.Text = "Print Stone Report";
-            this.buttonPrintStoneReport.UseVisualStyleBackColor = true;
-            this.buttonPrintStoneReport.Click += new System.EventHandler(this.buttonPrintStoneReport_Click);
+            this.buttonStoreAndPrintOPs.Location = new System.Drawing.Point(288, 446);
+            this.buttonStoreAndPrintOPs.Name = "buttonStoreAndPrintOPs";
+            this.buttonStoreAndPrintOPs.Size = new System.Drawing.Size(143, 23);
+            this.buttonStoreAndPrintOPs.TabIndex = 2;
+            this.buttonStoreAndPrintOPs.Text = "Store and print OPs";
+            this.buttonStoreAndPrintOPs.UseVisualStyleBackColor = true;
+            this.buttonStoreAndPrintOPs.Click += new System.EventHandler(this.buttonStoreAndPrintOPs_Click);
             // 
             // listBoxStoneReportTextElements
             // 
@@ -142,35 +142,35 @@ namespace SPD.GUI
             this.label4.TabIndex = 7;
             this.label4.Text = "Default Textelements:";
             // 
-            // checkBoxStoneReportOperations
+            // buttonStoreAndPrintVisits
             // 
-            this.checkBoxStoneReportOperations.AutoSize = true;
-            this.checkBoxStoneReportOperations.Location = new System.Drawing.Point(678, 36);
-            this.checkBoxStoneReportOperations.Name = "checkBoxStoneReportOperations";
-            this.checkBoxStoneReportOperations.Size = new System.Drawing.Size(101, 17);
-            this.checkBoxStoneReportOperations.TabIndex = 8;
-            this.checkBoxStoneReportOperations.Text = "Print Operations";
-            this.checkBoxStoneReportOperations.UseVisualStyleBackColor = true;
+            this.buttonStoreAndPrintVisits.Location = new System.Drawing.Point(437, 447);
+            this.buttonStoreAndPrintVisits.Name = "buttonStoreAndPrintVisits";
+            this.buttonStoreAndPrintVisits.Size = new System.Drawing.Size(119, 23);
+            this.buttonStoreAndPrintVisits.TabIndex = 10;
+            this.buttonStoreAndPrintVisits.Text = "Store and print Visits";
+            this.buttonStoreAndPrintVisits.UseVisualStyleBackColor = true;
+            this.buttonStoreAndPrintVisits.Click += new System.EventHandler(this.buttonStoreAndPrintVisits_Click);
             // 
-            // checkBoxStoneReportVisits
+            // buttonStoreAndPrintOPsAndVisits
             // 
-            this.checkBoxStoneReportVisits.AutoSize = true;
-            this.checkBoxStoneReportVisits.Location = new System.Drawing.Point(678, 60);
-            this.checkBoxStoneReportVisits.Name = "checkBoxStoneReportVisits";
-            this.checkBoxStoneReportVisits.Size = new System.Drawing.Size(74, 17);
-            this.checkBoxStoneReportVisits.TabIndex = 9;
-            this.checkBoxStoneReportVisits.Text = "Print Visits";
-            this.checkBoxStoneReportVisits.UseVisualStyleBackColor = true;
+            this.buttonStoreAndPrintOPsAndVisits.Location = new System.Drawing.Point(562, 447);
+            this.buttonStoreAndPrintOPsAndVisits.Name = "buttonStoreAndPrintOPsAndVisits";
+            this.buttonStoreAndPrintOPsAndVisits.Size = new System.Drawing.Size(161, 23);
+            this.buttonStoreAndPrintOPsAndVisits.TabIndex = 11;
+            this.buttonStoreAndPrintOPsAndVisits.Text = "Store and print OPs and Visits";
+            this.buttonStoreAndPrintOPsAndVisits.UseVisualStyleBackColor = true;
+            this.buttonStoreAndPrintOPsAndVisits.Click += new System.EventHandler(this.buttonStoreAndPrintOPsAndVisits_Click);
             // 
             // StoneReportControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.checkBoxStoneReportVisits);
-            this.Controls.Add(this.checkBoxStoneReportOperations);
+            this.Controls.Add(this.buttonStoreAndPrintOPsAndVisits);
+            this.Controls.Add(this.buttonStoreAndPrintVisits);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.listBoxStoneReportTextElements);
-            this.Controls.Add(this.buttonPrintStoneReport);
+            this.Controls.Add(this.buttonStoreAndPrintOPs);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.monthCalendarStoneReport);
@@ -196,10 +196,10 @@ namespace SPD.GUI
         private System.Windows.Forms.MonthCalendar monthCalendarStoneReport;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button buttonPrintStoneReport;
+        private System.Windows.Forms.Button buttonStoreAndPrintOPs;
         private System.Windows.Forms.ListBox listBoxStoneReportTextElements;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox checkBoxStoneReportOperations;
-        private System.Windows.Forms.CheckBox checkBoxStoneReportVisits;
+        private System.Windows.Forms.Button buttonStoreAndPrintVisits;
+        private System.Windows.Forms.Button buttonStoreAndPrintOPsAndVisits;
     }
 }

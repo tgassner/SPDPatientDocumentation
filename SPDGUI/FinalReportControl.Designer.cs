@@ -74,7 +74,7 @@ namespace SPD.GUI {
             // 
             // buttonStore
             // 
-            this.buttonStore.Location = new System.Drawing.Point(178, 446);
+            this.buttonStore.Location = new System.Drawing.Point(214, 446);
             this.buttonStore.Name = "buttonStore";
             this.buttonStore.Size = new System.Drawing.Size(106, 23);
             this.buttonStore.TabIndex = 1;
@@ -109,13 +109,13 @@ namespace SPD.GUI {
             // 
             // buttonPrintFurtherTreatment
             // 
-            this.buttonPrintFurtherTreatment.Location = new System.Drawing.Point(290, 446);
+            this.buttonPrintFurtherTreatment.Location = new System.Drawing.Point(326, 446);
             this.buttonPrintFurtherTreatment.Name = "buttonPrintFurtherTreatment";
-            this.buttonPrintFurtherTreatment.Size = new System.Drawing.Size(124, 23);
+            this.buttonPrintFurtherTreatment.Size = new System.Drawing.Size(152, 23);
             this.buttonPrintFurtherTreatment.TabIndex = 2;
-            this.buttonPrintFurtherTreatment.Text = "Print Final Report";
+            this.buttonPrintFurtherTreatment.Text = "Store and Print Final Report";
             this.buttonPrintFurtherTreatment.UseVisualStyleBackColor = true;
-            this.buttonPrintFurtherTreatment.Click += new System.EventHandler(this.buttonPrintFinalReport_Click);
+            this.buttonPrintFurtherTreatment.Click += new System.EventHandler(this.buttonStoreAndPrintFinalReport_Click);
             // 
             // listBoxFinalReportTextElements
             // 

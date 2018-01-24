@@ -7,6 +7,7 @@ using SPD.CommonObjects;
 using System.Drawing;
 using SPD.CommonUtilities;
 using System.Drawing.Printing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace SPD.Print {
@@ -601,7 +602,154 @@ namespace SPD.Print {
             {
                 return;
             }
-            MessageBox.Show("TODO implement Stones print!");
+
+            float leftMargin = 100;
+            float topMargin = 100;
+
+            Font headlineFont = new Font("Arial", 18.0f, FontStyle.Underline | FontStyle.Bold);
+            Font dateFont = new Font("Arial", 12f, FontStyle.Bold);
+            Font finalReportFont = new Font("Arial", 14.0f, FontStyle.Underline | FontStyle.Bold);
+            Font printFont = new Font("Arial", 11, FontStyle.Regular);
+            Font fatFont = new Font("Arial", 11, FontStyle.Bold);
+            Font barCodeFont = null;
+            if (StaticUtilities.IsFontInstalled("Free 3 of 9 Extended") && SPD.GUI.Properties.Settings.Default.Barcode)
+            {
+                barCodeFont = new Font("Free 3 of 9 Extended", 35, FontStyle.Regular, GraphicsUnit.Point);
+            }
+
+            PrintableDocument pd = new PrintableDocument();
+            pd.DocumentName = "SPD Stone Report";
+
+            foreach (PatientData patient in patients)
+            {
+                PrintablePage pp = new PrintablePage();
+               
+                putLetterhead(pp);
+
+                float yPos = (float)topMargin + (float)(4 * 16.86523);
+                if (barCodeFont != null)
+                {
+                    pp.AddPrintableObject(new PrintableTextObject(String.Format("*000000{0}*", patient.Id.ToString()), barCodeFont, Brushes.Black, 500, yPos));
+                }
+                pp.AddPrintableObject(new PrintableTextObject("Patient ID: " + patient.Id.ToString(), printFont, Brushes.Black, leftMargin, yPos));
+                yPos += 16.86523F;
+                pp.AddPrintableObject(new PrintableTextObject("First name: " + patient.FirstName, printFont, Brushes.Black, leftMargin, yPos));
+                yPos += 16.86523F;
+                pp.AddPrintableObject(new PrintableTextObject("Surname: " + patient.SurName, printFont, Brushes.Black, leftMargin, yPos));
+                yPos += 16.86523F;
+                pp.AddPrintableObject(new PrintableTextObject("Birthdate: " + patient.DateOfBirth.ToShortDateString() + " - Age: " + StaticUtilities.getAgeFromBirthDate(patient.DateOfBirth), printFont, Brushes.Black, leftMargin, yPos));
+                yPos += 16.86523F;
+                yPos += 16.86523F;
+
+                if (operations) {
+                    IList<OperationData> ops = patComp.GetOperationsByPatientID(patient.Id);
+
+                    if (ops != null && ops.Count != 0) {
+
+                        pp.AddPrintableObject(new PrintableTextObject("Operations", fatFont, Brushes.Black, leftMargin, yPos));
+                        yPos += 16.86523F;
+
+                        foreach (OperationData op in ops.Reverse()) {
+                            pp.AddPrintableObject(new PrintableTextObject("OP Date: " + op.Date.ToShortDateString(), printFont, Brushes.Black, leftMargin, yPos));
+                            pp.AddPrintableObject(new PrintableTextObject("                                             OP Team: " + op.Team.Replace('\n', ' ').Replace('\r', ' '), printFont, Brushes.Black, leftMargin, yPos));
+                            yPos += 16.86523F;
+
+                            if (!String.IsNullOrWhiteSpace(op.Diagnoses))
+                            {
+                                List<string> strs = new List<string>();
+                                strs.Add(op.Diagnoses.Replace('\n', ' ').Replace('\r', ' '));
+                                strs = SplitStringsForPrinting(75, strs);
+
+                                pp.AddPrintableObject(new PrintableTextObject("OP Diagnosis: " + strs[0], printFont, Brushes.Black, leftMargin, yPos));
+                                yPos += 16.86523F;
+
+                                for (int i = 1; i < strs.Count; i++)
+                                {
+                                    pp.AddPrintableObject(new PrintableTextObject("   " + strs[i], printFont, Brushes.Black, leftMargin, yPos));
+                                    yPos += 16.86523F;
+                                }
+                            }
+
+                            pp.AddPrintableObject(new PrintableTextObject(
+                                "Performed OP: " + op.Performed.Replace('\n', ' ').Replace('\r', ' '), printFont,
+                                Brushes.Black, leftMargin, yPos));
+                            yPos += 16.86523F;
+                            yPos += 5.621743333333333F; // 1/3 Zeile
+                        }
+                    }
+                }
+
+                if (visits)
+                {
+                    IList<VisitData> vis = patComp.GetVisitsByPatientID(patient.Id);
+
+                    if (vis != null && vis.Count != 0) {
+
+                        pp.AddPrintableObject(new PrintableTextObject("Visits", fatFont, Brushes.Black, leftMargin, yPos));
+                        yPos += 16.86523F;
+                        
+                        foreach (VisitData vi in vis.Reverse()) {
+                            pp.AddPrintableObject(new PrintableTextObject("Visit Date: " + vi.VisitDate.ToShortDateString(), printFont, Brushes.Black, leftMargin, yPos));
+                            yPos += 16.86523F;
+
+                            if (!String.IsNullOrWhiteSpace(vi.ExtraDiagnosis)) {
+                                List<string> strs = new List<string>();
+                                strs.Add(vi.ExtraDiagnosis.Replace('\n', ' ').Replace('\r', ' '));
+                                strs = SplitStringsForPrinting(75, strs);
+
+                                pp.AddPrintableObject(new PrintableTextObject("Visit Diagnosis: " + strs[0], printFont, Brushes.Black, leftMargin, yPos));
+                                yPos += 16.86523F;
+
+                                for (int i = 1; i < strs.Count; i++) {
+                                    pp.AddPrintableObject(new PrintableTextObject("   " + strs[i], printFont, Brushes.Black, leftMargin, yPos));
+                                    yPos += 16.86523F;
+                                }
+                            }
+
+                            if (!String.IsNullOrWhiteSpace(vi.ExtraTherapy)) {
+                                List<string> strs = new List<string>();
+                                strs.Add(vi.ExtraTherapy.Replace('\n', ' ').Replace('\r', ' '));
+                                strs = SplitStringsForPrinting(75, strs);
+
+                                pp.AddPrintableObject(new PrintableTextObject("Visit Therapy: " + strs[0], printFont, Brushes.Black, leftMargin, yPos));
+                                yPos += 16.86523F;
+
+                                for (int i = 1; i < strs.Count; i++)
+                                {
+                                    pp.AddPrintableObject(new PrintableTextObject("   " + strs[i], printFont, Brushes.Black, leftMargin, yPos));
+                                    yPos += 16.86523F;
+                                }
+                            }
+                            yPos += 5.621743333333333F; // 1/3 Zeile
+                        }
+                    }
+                }
+
+                pp.AddPrintableObject(new PrintableTextObject("Stone Report:", finalReportFont, Brushes.Red, leftMargin, yPos));
+
+                yPos += 16.86523F;
+                yPos += 16.86523F;
+
+                List<string> stoneReportList = new List<string>();
+                stoneReportList.Add(patComp.GetStoneReportByPatientId(patient.Id));
+                stoneReportList = SplitStringsForPrinting(80, stoneReportList);
+                
+                foreach (string stoneReportLine in stoneReportList)
+                {
+                    pp.AddPrintableObject(new PrintableTextObject(stoneReportLine, printFont, Brushes.Black, leftMargin, yPos));
+                    yPos += 16.86523F;
+                    if (yPos > 1050)
+                    {
+                        yPos = topMargin;
+                        pd.AddPrintPage(pp);
+                        pp = new PrintablePage();
+                    }
+                }
+
+                pd.AddPrintPage(pp);
+            }
+
+            pd.DoPrint();
         }
 
         /// <summary>

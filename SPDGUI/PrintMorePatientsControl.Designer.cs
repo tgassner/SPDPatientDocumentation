@@ -89,6 +89,10 @@ namespace SPD.GUI {
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.buttonPrintWaitListHTML = new System.Windows.Forms.Button();
+            this.groupBoxStoneReport = new System.Windows.Forms.GroupBox();
+            this.buttonPrintStoneReportOPs = new System.Windows.Forms.Button();
+            this.buttonPrintStoneReportVisits = new System.Windows.Forms.Button();
+            this.buttonPrintStoneReportOPAndVisits = new System.Windows.Forms.Button();
             this.groupBoxNextAction.SuspendLayout();
             this.groupBoxPrintableDetails.SuspendLayout();
             this.groupBoxLabelPrinting.SuspendLayout();
@@ -96,6 +100,7 @@ namespace SPD.GUI {
             this.groupBoxTemperaturCurves.SuspendLayout();
             this.groupBoxPrintPatientList.SuspendLayout();
             this.groupBoxWaitingList.SuspendLayout();
+            this.groupBoxStoneReport.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonSelectAll
@@ -465,7 +470,7 @@ namespace SPD.GUI {
             this.groupBoxLabelPrinting.Controls.Add(this.textBoxLeftBorder);
             this.groupBoxLabelPrinting.Location = new System.Drawing.Point(6, 530);
             this.groupBoxLabelPrinting.Name = "groupBoxLabelPrinting";
-            this.groupBoxLabelPrinting.Size = new System.Drawing.Size(300, 200);
+            this.groupBoxLabelPrinting.Size = new System.Drawing.Size(201, 203);
             this.groupBoxLabelPrinting.TabIndex = 5;
             this.groupBoxLabelPrinting.TabStop = false;
             this.groupBoxLabelPrinting.Text = "Label Printing";
@@ -746,10 +751,53 @@ namespace SPD.GUI {
             this.buttonPrintWaitListHTML.UseVisualStyleBackColor = true;
             this.buttonPrintWaitListHTML.Click += new System.EventHandler(this.buttonPrintWaitListHTML_Click);
             // 
+            // groupBoxStoneReport
+            // 
+            this.groupBoxStoneReport.Controls.Add(this.buttonPrintStoneReportOPAndVisits);
+            this.groupBoxStoneReport.Controls.Add(this.buttonPrintStoneReportVisits);
+            this.groupBoxStoneReport.Controls.Add(this.buttonPrintStoneReportOPs);
+            this.groupBoxStoneReport.Location = new System.Drawing.Point(217, 530);
+            this.groupBoxStoneReport.Name = "groupBoxStoneReport";
+            this.groupBoxStoneReport.Size = new System.Drawing.Size(90, 203);
+            this.groupBoxStoneReport.TabIndex = 35;
+            this.groupBoxStoneReport.TabStop = false;
+            this.groupBoxStoneReport.Text = "Stone Report";
+            // 
+            // buttonPrintStoneReportOPs
+            // 
+            this.buttonPrintStoneReportOPs.Location = new System.Drawing.Point(7, 16);
+            this.buttonPrintStoneReportOPs.Name = "buttonPrintStoneReportOPs";
+            this.buttonPrintStoneReportOPs.Size = new System.Drawing.Size(75, 56);
+            this.buttonPrintStoneReportOPs.TabIndex = 0;
+            this.buttonPrintStoneReportOPs.Text = "Print Stone Reports with OPs";
+            this.buttonPrintStoneReportOPs.UseVisualStyleBackColor = true;
+            this.buttonPrintStoneReportOPs.Click += new System.EventHandler(this.buttonPrintStoneReportOPs_Click);
+            // 
+            // buttonPrintStoneReportVisits
+            // 
+            this.buttonPrintStoneReportVisits.Location = new System.Drawing.Point(6, 74);
+            this.buttonPrintStoneReportVisits.Name = "buttonPrintStoneReportVisits";
+            this.buttonPrintStoneReportVisits.Size = new System.Drawing.Size(75, 49);
+            this.buttonPrintStoneReportVisits.TabIndex = 1;
+            this.buttonPrintStoneReportVisits.Text = "Print Stone Reports with Visits";
+            this.buttonPrintStoneReportVisits.UseVisualStyleBackColor = true;
+            this.buttonPrintStoneReportVisits.Click += new System.EventHandler(this.buttonPrintStoneReportVisits_Click);
+            // 
+            // buttonPrintStoneReportOPAndVisits
+            // 
+            this.buttonPrintStoneReportOPAndVisits.Location = new System.Drawing.Point(6, 126);
+            this.buttonPrintStoneReportOPAndVisits.Name = "buttonPrintStoneReportOPAndVisits";
+            this.buttonPrintStoneReportOPAndVisits.Size = new System.Drawing.Size(75, 68);
+            this.buttonPrintStoneReportOPAndVisits.TabIndex = 2;
+            this.buttonPrintStoneReportOPAndVisits.Text = "Print Stone Reports with Ops and Visits";
+            this.buttonPrintStoneReportOPAndVisits.UseVisualStyleBackColor = true;
+            this.buttonPrintStoneReportOPAndVisits.Click += new System.EventHandler(this.buttonPrintStoneReportOPAndVisits_Click);
+            // 
             // PrintMorePatientsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBoxStoneReport);
             this.Controls.Add(this.groupBoxWaitingList);
             this.Controls.Add(this.groupBoxPrintPatientList);
             this.Controls.Add(this.buttonListTitle);
@@ -778,6 +826,7 @@ namespace SPD.GUI {
             this.groupBoxPrintPatientList.PerformLayout();
             this.groupBoxWaitingList.ResumeLayout(false);
             this.groupBoxWaitingList.PerformLayout();
+            this.groupBoxStoneReport.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -851,5 +900,9 @@ namespace SPD.GUI {
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckBox checkBoxUseOPDataIfAvailable;
+        private System.Windows.Forms.GroupBox groupBoxStoneReport;
+        private System.Windows.Forms.Button buttonPrintStoneReportOPAndVisits;
+        private System.Windows.Forms.Button buttonPrintStoneReportVisits;
+        private System.Windows.Forms.Button buttonPrintStoneReportOPs;
     }
 }

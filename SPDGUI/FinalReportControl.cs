@@ -95,14 +95,20 @@ namespace SPD.GUI {
         /// </summary>
         public event NewFinalReportStoreEventHandler Store;
 
-        private void buttonStore_Click(object sender, EventArgs e) {
+        private void buttonStore_Click(object sender, EventArgs e)
+        {
+            store();
+        }
+
+        private void store()
+        {
             NewFinalReportStoreEventArgs e2 = new NewFinalReportStoreEventArgs(
                 textBoxFinalReport.Text);
             Store(this, e2);
-            //Clear();
         }
 
-        private void buttonPrintFinalReport_Click(object sender, EventArgs e) {
+        private void buttonStoreAndPrintFinalReport_Click(object sender, EventArgs e) {
+            store();
             if (patComp.GetLastOperationByPatientID(currentPatient.Id) == null) {
                 MessageBox.Show("This Patient hasn't got a Operation\r\nNo Final Report can be printed!");
                 return;
