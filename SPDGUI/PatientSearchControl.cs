@@ -665,6 +665,10 @@ namespace SPD.GUI {
             this.InsertPatients(this.patComp.FindPatientByWaitList(), true);
         }
 
+        private void buttonStonePatients_Click(object sender, EventArgs e) {
+            this.InsertPatients(this.patComp.FindPatientByExistsStoneReport(), true);
+        }
+
         private void comboBoxAsmara_SelectedIndexChanged(object sender, EventArgs e) {
             ResidentOfAsmara asmara;
             try {
@@ -771,7 +775,6 @@ namespace SPD.GUI {
         }
 
         #endregion doSearch       
-        
     }
 
     #region event arguments

@@ -304,6 +304,15 @@ namespace SPD.BL {
         }
 
         /// <summary>
+        /// Finds the patient by stone report.
+        /// </summary>
+        /// <returns></returns>
+        public virtual IList<PatientData> FindPatientByExistsStoneReport()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// Finds the patient by finished.
         /// </summary>
         /// <param name="finished">The finished.</param>

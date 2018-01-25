@@ -165,6 +165,12 @@ namespace SPD.BL.Interfaces {
         [OperationContract]
         IList<PatientData> FindPatientByWaitList();
         /// <summary>
+        /// Finds the patient by StoneReport.
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        IList<PatientData> FindPatientByExistsStoneReport();
+        /// <summary>
         /// Finds the patient by finished.
         /// </summary>
         /// <param name="finished">The finished.</param>

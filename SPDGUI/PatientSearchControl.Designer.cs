@@ -80,6 +80,7 @@ namespace SPD.GUI {
             this.buttonRemoveFromWaitList = new System.Windows.Forms.Button();
             this.buttonIdCardPrint = new System.Windows.Forms.Button();
             this.buttonStoneReport = new System.Windows.Forms.Button();
+            this.buttonStonePatients = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewPatients
@@ -434,7 +435,7 @@ namespace SPD.GUI {
             // labelAsmara
             // 
             this.labelAsmara.AutoSize = true;
-            this.labelAsmara.Location = new System.Drawing.Point(495, 33);
+            this.labelAsmara.Location = new System.Drawing.Point(501, 33);
             this.labelAsmara.Name = "labelAsmara";
             this.labelAsmara.Size = new System.Drawing.Size(45, 13);
             this.labelAsmara.TabIndex = 45;
@@ -443,7 +444,7 @@ namespace SPD.GUI {
             // comboBoxAsmara
             // 
             this.comboBoxAsmara.FormattingEnabled = true;
-            this.comboBoxAsmara.Location = new System.Drawing.Point(537, 29);
+            this.comboBoxAsmara.Location = new System.Drawing.Point(542, 29);
             this.comboBoxAsmara.Name = "comboBoxAsmara";
             this.comboBoxAsmara.Size = new System.Drawing.Size(56, 21);
             this.comboBoxAsmara.TabIndex = 14;
@@ -452,7 +453,7 @@ namespace SPD.GUI {
             // labelFinished
             // 
             this.labelFinished.AutoSize = true;
-            this.labelFinished.Location = new System.Drawing.Point(368, 32);
+            this.labelFinished.Location = new System.Drawing.Point(385, 32);
             this.labelFinished.Name = "labelFinished";
             this.labelFinished.Size = new System.Drawing.Size(49, 13);
             this.labelFinished.TabIndex = 49;
@@ -461,7 +462,7 @@ namespace SPD.GUI {
             // comboBoxFinished
             // 
             this.comboBoxFinished.FormattingEnabled = true;
-            this.comboBoxFinished.Location = new System.Drawing.Point(414, 27);
+            this.comboBoxFinished.Location = new System.Drawing.Point(430, 27);
             this.comboBoxFinished.Name = "comboBoxFinished";
             this.comboBoxFinished.Size = new System.Drawing.Size(68, 21);
             this.comboBoxFinished.TabIndex = 13;
@@ -524,19 +525,19 @@ namespace SPD.GUI {
             // 
             this.buttonSearchAmulant.Location = new System.Drawing.Point(237, 27);
             this.buttonSearchAmulant.Name = "buttonSearchAmulant";
-            this.buttonSearchAmulant.Size = new System.Drawing.Size(60, 23);
+            this.buttonSearchAmulant.Size = new System.Drawing.Size(47, 23);
             this.buttonSearchAmulant.TabIndex = 12;
-            this.buttonSearchAmulant.Text = "Ambulant";
+            this.buttonSearchAmulant.Text = "Amblnt";
             this.buttonSearchAmulant.UseVisualStyleBackColor = true;
             this.buttonSearchAmulant.Click += new System.EventHandler(this.buttonSearchAmulant_Click);
             // 
             // buttonWaitList
             // 
-            this.buttonWaitList.Location = new System.Drawing.Point(300, 27);
+            this.buttonWaitList.Location = new System.Drawing.Point(284, 27);
             this.buttonWaitList.Name = "buttonWaitList";
-            this.buttonWaitList.Size = new System.Drawing.Size(56, 23);
+            this.buttonWaitList.Size = new System.Drawing.Size(51, 23);
             this.buttonWaitList.TabIndex = 55;
-            this.buttonWaitList.Text = "Wait List";
+            this.buttonWaitList.Text = "WaitLst";
             this.buttonWaitList.UseVisualStyleBackColor = true;
             this.buttonWaitList.Click += new System.EventHandler(this.buttonWaitList_Click);
             // 
@@ -580,10 +581,21 @@ namespace SPD.GUI {
             this.buttonStoneReport.UseVisualStyleBackColor = true;
             this.buttonStoneReport.Click += new System.EventHandler(this.buttonStoneReport_Click);
             // 
+            // buttonStonePatients
+            // 
+            this.buttonStonePatients.Location = new System.Drawing.Point(335, 27);
+            this.buttonStonePatients.Name = "buttonStonePatients";
+            this.buttonStonePatients.Size = new System.Drawing.Size(47, 23);
+            this.buttonStonePatients.TabIndex = 60;
+            this.buttonStonePatients.Text = "Stone";
+            this.buttonStonePatients.UseVisualStyleBackColor = true;
+            this.buttonStonePatients.Click += new System.EventHandler(this.buttonStonePatients_Click);
+            // 
             // PatientSearchControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonStonePatients);
             this.Controls.Add(this.buttonStoneReport);
             this.Controls.Add(this.buttonIdCardPrint);
             this.Controls.Add(this.buttonRemoveFromWaitList);
@@ -701,5 +713,6 @@ namespace SPD.GUI {
         private System.Windows.Forms.Button buttonRemoveFromWaitList;
         private System.Windows.Forms.Button buttonIdCardPrint;
         private System.Windows.Forms.Button buttonStoneReport;
+        private System.Windows.Forms.Button buttonStonePatients;
     }
 }

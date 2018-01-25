@@ -398,6 +398,24 @@ namespace SPD.BL {
         }
 
         /// <summary>
+        /// Finds the patient by stone report list.
+        /// </summary>
+        /// <returns></returns>
+        public override IList<PatientData> FindPatientByExistsStoneReport()
+        {
+            List<PatientData> patients = new List<PatientData>();
+            foreach (PatientData patient in this.GetAllPatients())
+            {
+                string stoneReport = GetStoneReportByPatientId(patient.Id);
+                if (!string.IsNullOrWhiteSpace(stoneReport))
+                {
+                    patients.Add(patient);
+                }
+            }
+            return patients;
+        }
+
+        /// <summary>
         /// Finds the patient by finished.
         /// </summary>
         /// <param name="finished">The finished.</param>
