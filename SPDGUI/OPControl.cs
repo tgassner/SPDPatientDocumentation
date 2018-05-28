@@ -430,7 +430,8 @@ namespace SPD.GUI{
             textBoxOPDate.Text = DateTime.Now.ToShortDateString();
         }
 
-        private void buttonSaveAndPrint_Click_1(object sender, EventArgs e) {
+        private void buttonSaveAndPrint_Click_1(object sender, EventArgs e)
+        {
             int weeks = Int32.Parse(listBoxDays.SelectedItem.ToString()) / 12;
             int copys = Int32.Parse(listBoxCopys.SelectedItem.ToString());
             saveAndPrintA3(weeks, copys);

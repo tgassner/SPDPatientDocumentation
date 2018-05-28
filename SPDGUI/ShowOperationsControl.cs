@@ -178,12 +178,22 @@ namespace SPD.GUI {
         }
 
         private void buttonprintA3TemperatureCurve_Click(object sender, EventArgs e) {
-            int weeks = Int32.Parse(listBoxDays.SelectedItem.ToString()) / 12;
-            int copies = Int32.Parse(listBoxCopys.SelectedItem.ToString());
-            SPDPrint print = new SPDPrint(this.patComp);
-            IList<PatientData> patients = new List<PatientData>();
-            patients.Add(currentPatient);
-            print.PrintA3TemperaturCurve(patients, weeks, copies, SPDPrint.PrintFormat.A3, null);
+            OperationData lastOP = patComp.GetLastOperationByPatientID(currentPatient.Id);
+
+            if (lastOP == null) {
+                MessageBox.Show("This patient\n" + currentPatient.Id + " " + currentPatient.FirstName + " " + currentPatient.SurName + "\nhas no operation!", "Printing temperatur curve not possible");
+                return;
+            }
+            else
+            {
+
+                int weeks = Int32.Parse(listBoxDays.SelectedItem.ToString()) / 12;
+                int copies = Int32.Parse(listBoxCopys.SelectedItem.ToString());
+                SPDPrint print = new SPDPrint(this.patComp);
+                IList<PatientData> patients = new List<PatientData>();
+                patients.Add(currentPatient);
+                print.PrintA3TemperaturCurve(patients, weeks, copies, SPDPrint.PrintFormat.A3, null);
+            }
         }
     }
 

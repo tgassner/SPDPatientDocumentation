@@ -101,7 +101,10 @@
             <File Id="F_log4net_xml" Name="log4net.xml" KeyPath="yes" Source="..\SPDDAL\bin\x86\Release\log4net.xml" />
           </Component>
           <Component Id="C_MySql_Data_dll" Guid="{65C77768-1FB8-92DF-40B7-273F88DE112C}">
-            <File Id="F_MySql_Data_dll" Name="MySql.Data.dll" KeyPath="yes" Source="..\SPDDAL\bin\x86\Release\mysql.data.dll" />
+            <File Id="F_MySql_Data_dll" Name="MySql.Data.dll" KeyPath="yes" Source="..\SPDDAL\bin\x86\Release\MySql.Data.dll" />
+          </Component>
+          <Component Id="C_MySql_Data_cml" Guid="{6D52A8E7-0F32-4391-B28B-2C53A3A3C5DE}">
+            <File Id="F_MySql_Data_xml" Name="MySql.Data.xml" KeyPath="yes" Source="..\SPDDAL\bin\x86\Release\MySql.Data.xml" />
           </Component>
           <Component Id="C_spd_ico" Guid="{8608C0D0-9543-53E2-88C6-C9E178FD5B10}">
             <File Id="F_spd_ico" Name="spd.ico" KeyPath="yes" Source="..\resources\spd.ico" />
@@ -112,15 +115,25 @@
           <Component Id="C_patient_accdb" Guid="{547F3C75-AE50-4AC3-F38B-3C1CDA9862F1}">
             <File Id="F_patient_accdb" Name="patient.accdb" KeyPath="yes" Source="..\Database\access\patient.accdb" />
           </Component>
+          <!--
           <Component Id="C_Mono_Security_dll" Guid="{DA27003E-7076-409A-C6CB-EF6E79D9D4F6}">
             <File Id="F_Mono_Security_dll" Name="Mono.Security.dll" KeyPath="yes" Source="..\SPDDAL\bin\x86\Release\Mono.Security.dll" />
           </Component>
+          -->
           <Component Id="C_Npgsql_dll" Guid="{715D1B4C-B7EA-B4D4-528D-A4526B323C30}">
             <File Id="F_Npgsql_dll" Name="Npgsql.dll" KeyPath="yes" Source="..\SPDDAL\bin\x86\Release\Npgsql.dll" />
           </Component>
           <Component Id="C_Npgsql_xml" Guid="{1A92BFDB-6CDE-47D2-9FD1-89BEA199FF5D}">
             <File Id="F_Npgsql_xml" Name="Npgsql.xml" KeyPath="yes" Source="..\SPDDAL\bin\x86\Release\Npgsql.xml" />
           </Component>
+          <!--
+          <Component Id="C_Google_Protobuf_dll" Guid="{A7C41683-1E0A-466E-A2A4-3113DF76D205}">
+            <File Id="F_Google_Protobuf_dll" Name="Google.Protobuf.dll" KeyPath="yes" Source="..\SPDDAL\bin\x86\Release\Google.Protobuf.dll" />
+          </Component>
+          <Component Id="C_Google_Protobuf_xml" Guid="{E4072F5A-1F53-40CC-8E5F-1D03D13ED45A}">
+            <File Id="F_Google_Protobuf_xml" Name="Google.Protobuf.xml" KeyPath="yes" Source="..\SPDDAL\bin\x86\Release\Google.Protobuf.xml" />
+          </Component>
+          -->
 
           <Directory Id="D_fonts" Name="fonts">
             <Component Id="C_FRE3OF9X" Guid="{41F14D6B-88E3-781E-7675-B3A146539618}">
@@ -174,7 +187,7 @@
       <ComponentRef Id="C_spd_ico" />
       <ComponentRef Id="C_patient_mdb" />
       <ComponentRef Id="C_patient_accdb" />
-      <ComponentRef Id="C_Mono_Security_dll" />
+      <!--<ComponentRef Id="C_Mono_Security_dll" />-->
       <ComponentRef Id="C_Npgsql_dll" />
       <ComponentRef Id="ShortCutComponent" />
     </Feature>

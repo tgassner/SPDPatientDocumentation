@@ -87,6 +87,10 @@ namespace SPD.Print {
                     op = opParam;
                 }
 
+                if (op == null) {
+                    continue;
+                }
+
                 IList<string> medications = new List<string>();
                 IList<int> medDays = new List<int>();
                 bool hasCatheter = op.KathDays > 0;
@@ -108,7 +112,7 @@ namespace SPD.Print {
                     addPrintableTextObject(1, a4Page, a3Page, "Paediatric Urology Team Austria", headlineFont, new SolidBrush(Color.FromArgb(0, 61, 120)), leftMargin, topMargin + (float)(0 * 17.56));
 
                     addPrintableTextObject(1, a4Page, a3Page, "Paediatric Urology Team Austria", headlineFont, new SolidBrush(Color.FromArgb(0, 61, 120)), leftMargin, topMargin + (float)(0 * 17.56));
-                    addPrintableTextObject(1, a4Page, a3Page, op.Date.Month.ToString() + " " + op.Date.Year.ToString() + "   Page: " + (week + 1), dateFont, Brushes.Red, leftMargin, topMargin + (float)28.74);
+                    addPrintableTextObject(1, a4Page, a3Page, op.Date.Month.ToString() + " " + op.Date.Year.ToString() + "   Page: " + (week + 1), dateFont, Brushes.Red, leftMargin + 250, topMargin + (float)28.74);
 
                     addPrintableTextObject(1, a4Page, a3Page, "Additional Information:", printFont, Brushes.Black, leftMargin + (float)610, topMargin + 10F);
                     //pp.AddPrintableObject(new PrintableTextObject("Notes - Final Report:", printFont, Brushes.Black, leftMargin + (float)635, topMargin + 120F));
@@ -135,21 +139,33 @@ namespace SPD.Print {
                         count++;
                     }
 
-                    float y = (float)topMargin + (float)(3 * 17.56) + 9;
+                    float y = (float)topMargin + (float)(3 * 17.56) - 8;
 
-                    addPrintableTextObject(1, a4Page, a3Page, "Patient ID: " + patient.Id.ToString(), printFont, Brushes.Black, leftMargin, y);
+                    float leftMarginValues = leftMargin + 160;
+
+                    addPrintableTextObject(1, a4Page, a3Page, "Patient ID: ", printFont, Brushes.Black, leftMargin, y);
+                    addPrintableTextObject(1, a4Page, a3Page, patient.Id.ToString(), printFont, Brushes.Black, leftMarginValues, y);
                     y += 17;
-                    addPrintableTextObject(1, a4Page, a3Page, "First name: " + patient.FirstName.Replace(Environment.NewLine, " "), printFont, Brushes.Black, leftMargin, y);
+
+                    addPrintableTextObject(1, a4Page, a3Page, "First name: ", printFont, Brushes.Black, leftMargin, y);
+                    addPrintableTextObject(1, a4Page, a3Page, patient.FirstName.Replace(Environment.NewLine, " "), printFont, Brushes.Black, leftMarginValues, y);
+
                     y += 17;
-                    addPrintableTextObject(1, a4Page, a3Page, "Surname: " + patient.SurName.Replace(Environment.NewLine, " "), printFont, Brushes.Black, leftMargin, y);
+                    addPrintableTextObject(1, a4Page, a3Page, "Surname: ", printFont, Brushes.Black, leftMargin, y);
+                    addPrintableTextObject(1, a4Page, a3Page, patient.SurName.Replace(Environment.NewLine, " "), printFont, Brushes.Black, leftMarginValues, y);
                     y += 17;
-                    if (patient.DateOfBirth != null && patient.DateOfBirth.Year > 1800) {
-                        addPrintableTextObject(1, a4Page, a3Page, "Birthdate: " + patient.DateOfBirth.ToShortDateString() + " - Age: " + StaticUtilities.getAgeFromBirthDate(patient.DateOfBirth), printFont, Brushes.Black, leftMargin, y);
-                        y += 17;
-                    }
-                    addPrintableTextObject(1, a4Page, a3Page, "Resident of Asmara: " + patient.ResidentOfAsmara.ToString(), printFont, Brushes.Black, leftMargin, y);
+                    addPrintableTextObject(1, a4Page, a3Page, "Birthdate: ", printFont, Brushes.Black, leftMargin, y);
+                    addPrintableTextObject(1, a4Page, a3Page, ((patient.DateOfBirth == null || patient.DateOfBirth.Year < 1800) ? "undefined" : patient.DateOfBirth.ToShortDateString() + " - Age: " + StaticUtilities.getAgeFromBirthDate(patient.DateOfBirth)), printFont, Brushes.Black, leftMarginValues, y);
                     y += 17;
-                    addPrintableTextObject(1, a4Page, a3Page, "OP Date: " + op.Date.ToShortDateString(), printFont, Brushes.Black, leftMargin, y);
+                    addPrintableTextObject(1, a4Page, a3Page, "Weight: ", printFont, Brushes.Black, leftMargin, y);
+                    addPrintableTextObject(1, a4Page, a3Page, patient.Weight.ToString(), printFont, Brushes.Black, leftMarginValues, y);
+                    y += 17;
+                    
+                    addPrintableTextObject(1, a4Page, a3Page, "Resident of Asmara: ", printFont, Brushes.Black, leftMargin, y);
+                    addPrintableTextObject(1, a4Page, a3Page, patient.ResidentOfAsmara.ToString(), printFont, Brushes.Black, leftMarginValues, y);
+                    y += 17;
+                    addPrintableTextObject(1, a4Page, a3Page, "OP Date: ", printFont, Brushes.Black, leftMargin, y);
+                    addPrintableTextObject(1, a4Page, a3Page, op.Date.ToShortDateString(), printFont, Brushes.Black, leftMarginValues, y);
                     y += 17;
                     addPrintableTextObject(1, a4Page, a3Page, "OP Diagnosis:", printFont, Brushes.Black, leftMargin, y);
                     if (op.Diagnoses.Replace(Environment.NewLine, " ").Length > 60) {
@@ -157,19 +173,21 @@ namespace SPD.Print {
                         diagnosesList.Add(op.Diagnoses.Replace(Environment.NewLine, " "));
                         diagnosesList = SplitStringsForPrinting(60, diagnosesList);
                         if (diagnosesList.Count >= 1) {
-                            addPrintableTextObject(1, a4Page, a3Page, diagnosesList[0], printFont, Brushes.Black, leftMargin + 110, y);
+                            addPrintableTextObject(1, a4Page, a3Page, diagnosesList[0], printFont, Brushes.Black, leftMarginValues, y);
                         }
                         if (diagnosesList.Count >= 2) {
                             y += 17;
-                            addPrintableTextObject(1, a4Page, a3Page, diagnosesList[1], printFont, Brushes.Black, leftMargin + 110, y);
+                            addPrintableTextObject(1, a4Page, a3Page, diagnosesList[1], printFont, Brushes.Black, leftMarginValues, y);
                         }
                     } else {
-                        addPrintableTextObject(1, a4Page, a3Page, op.Diagnoses.Replace(Environment.NewLine, " "), printFont, Brushes.Black, leftMargin + 110, y);
+                        addPrintableTextObject(1, a4Page, a3Page, op.Diagnoses.Replace(Environment.NewLine, " "), printFont, Brushes.Black, leftMarginValues, y);
                     }
                     y += 17;
-                    addPrintableTextObject(1, a4Page, a3Page, "Performed OP: " + op.Performed.Replace(Environment.NewLine, " "), printFont, Brushes.Black, leftMargin, y);
+                    addPrintableTextObject(1, a4Page, a3Page, "Performed OP: ", printFont, Brushes.Black, leftMargin, y);
+                    addPrintableTextObject(1, a4Page, a3Page, op.Performed.Replace(Environment.NewLine, " "), printFont, Brushes.Black, leftMarginValues, y);
                     y += 17;
-                    addPrintableTextObject(1, a4Page, a3Page, "OP Team: " + op.Team.Replace(Environment.NewLine, " "), printFont, Brushes.Black, leftMargin, y);
+                    addPrintableTextObject(1, a4Page, a3Page, "OP Team: ", printFont, Brushes.Black, leftMargin, y);
+                    addPrintableTextObject(1, a4Page, a3Page, op.Team.Replace(Environment.NewLine, " "), printFont, Brushes.Black, leftMarginValues, y);
 
                     //Gray Box
                     addPrintableRectangleObject(1, a4Page, a3Page, Brushes.LightGray, 40, 270, 6 * 182, 30);

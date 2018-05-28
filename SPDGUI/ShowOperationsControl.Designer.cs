@@ -64,7 +64,7 @@ namespace SPD.GUI {
             // 
             // buttonChangeOP
             // 
-            this.buttonChangeOP.Location = new System.Drawing.Point(351, 236);
+            this.buttonChangeOP.Location = new System.Drawing.Point(418, 243);
             this.buttonChangeOP.Name = "buttonChangeOP";
             this.buttonChangeOP.Size = new System.Drawing.Size(75, 23);
             this.buttonChangeOP.TabIndex = 5;
@@ -75,7 +75,7 @@ namespace SPD.GUI {
             // listBoxCopys
             // 
             this.listBoxCopys.FormattingEnabled = true;
-            this.listBoxCopys.Location = new System.Drawing.Point(732, 236);
+            this.listBoxCopys.Location = new System.Drawing.Point(788, 236);
             this.listBoxCopys.Name = "listBoxCopys";
             this.listBoxCopys.Size = new System.Drawing.Size(40, 30);
             this.listBoxCopys.TabIndex = 33;
@@ -83,7 +83,7 @@ namespace SPD.GUI {
             // labelSheets
             // 
             this.labelSheets.AutoSize = true;
-            this.labelSheets.Location = new System.Drawing.Point(692, 241);
+            this.labelSheets.Location = new System.Drawing.Point(748, 241);
             this.labelSheets.Name = "labelSheets";
             this.labelSheets.Size = new System.Drawing.Size(34, 13);
             this.labelSheets.TabIndex = 32;
@@ -92,7 +92,7 @@ namespace SPD.GUI {
             // labelDays
             // 
             this.labelDays.AutoSize = true;
-            this.labelDays.Location = new System.Drawing.Point(582, 241);
+            this.labelDays.Location = new System.Drawing.Point(638, 241);
             this.labelDays.Name = "labelDays";
             this.labelDays.Size = new System.Drawing.Size(34, 13);
             this.labelDays.TabIndex = 31;
@@ -101,16 +101,16 @@ namespace SPD.GUI {
             // listBoxDays
             // 
             this.listBoxDays.FormattingEnabled = true;
-            this.listBoxDays.Location = new System.Drawing.Point(622, 236);
+            this.listBoxDays.Location = new System.Drawing.Point(678, 236);
             this.listBoxDays.Name = "listBoxDays";
             this.listBoxDays.Size = new System.Drawing.Size(49, 30);
             this.listBoxDays.TabIndex = 30;
             // 
             // buttonprintA3TemperatureCurve
             // 
-            this.buttonprintA3TemperatureCurve.Location = new System.Drawing.Point(446, 236);
+            this.buttonprintA3TemperatureCurve.Location = new System.Drawing.Point(499, 243);
             this.buttonprintA3TemperatureCurve.Name = "buttonprintA3TemperatureCurve";
-            this.buttonprintA3TemperatureCurve.Size = new System.Drawing.Size(130, 23);
+            this.buttonprintA3TemperatureCurve.Size = new System.Drawing.Size(133, 23);
             this.buttonprintA3TemperatureCurve.TabIndex = 34;
             this.buttonprintA3TemperatureCurve.Text = "Print Temperature Curve";
             this.buttonprintA3TemperatureCurve.UseVisualStyleBackColor = true;
