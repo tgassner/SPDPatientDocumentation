@@ -135,8 +135,8 @@ namespace SPD.DAL {
                 {
                     if (Database == Databases.Access2007)
                     {
-                        throw new SPDException(e, "Error while opening Database Connection.",
-                                               @"http://www.microsoft.com/downloads/en/details.aspx?FamilyID=7554F536-8C28-4598-9B72-EF94E038C891&displaylang=en");
+                        throw new SPDException(e, "Error while opening Database Connection. Download and install the 32 bit Version of",
+                                               @"https://www.microsoft.com/en-us/download/details.aspx?id=54920");
                     } else {
                         throw new SPDException(e, "Error while opening Database Connection.", null);
                     }
